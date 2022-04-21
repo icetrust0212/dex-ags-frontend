@@ -4,6 +4,7 @@ import masterchefABI from 'config/abi/masterchef.json'
 import multicall from 'utils/multicall'
 import { getAddress, getMasterChefAddress } from 'utils/addressHelpers'
 import { SerializedFarmConfig } from 'config/constants/types'
+import { getMasterchefContract } from 'utils/contractHelpers'
 
 export const fetchFarmUserAllowances = async (account: string, farmsToFetch: SerializedFarmConfig[]) => {
   const masterChefAddress = getMasterChefAddress()
@@ -39,7 +40,6 @@ export const fetchFarmUserTokenBalances = async (account: string, farmsToFetch: 
 
 export const fetchFarmUserStakedBalances = async (account: string, farmsToFetch: SerializedFarmConfig[]) => {
   const masterChefAddress = getMasterChefAddress()
-
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
@@ -57,7 +57,9 @@ export const fetchFarmUserStakedBalances = async (account: string, farmsToFetch:
 
 export const fetchFarmUserEarnings = async (account: string, farmsToFetch: SerializedFarmConfig[]) => {
   const masterChefAddress = getMasterChefAddress()
+  const masterChef = getMasterchefContract()
 
+  console.log('farmUSerEarning: ', farmsToFetch, await masterChef.pendingAgs(farmsToFetch[0].pid, account))
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,

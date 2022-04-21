@@ -14,7 +14,7 @@ import {
 import { useWeb3React } from '@web3-react/core'
 import { Token } from '@pancakeswap/sdk'
 import { Ifo, PoolIds } from 'config/constants/types'
-import tokens from 'config/constants/tokens'
+import tokens, { NATIVE_CURRENCY } from 'config/constants/tokens'
 import { PublicIfoData, WalletIfoData } from 'views/Ifos/types'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -107,12 +107,12 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
     if (isLoading) {
       return <SkeletonCardTokens />
     }
-    if (account && !hasProfile) {
-      if (publicIfoData.status === 'finished') {
-        return <Text textAlign="center">{t('Activate PancakeSwap Profile to take part in next IFO‘s!')}</Text>
-      }
-      return <Text textAlign="center">{t('You need an active PancakeSwap Profile to take part in an IFO!')}</Text>
-    }
+    // if (account && !hasProfile) {
+    //   if (publicIfoData.status === 'finished') {
+    //     return <Text textAlign="center">{t(`Get $${NATIVE_CURRENCY.wrapSymbol} tokens to take part in next ICO‘s!`)}</Text>
+    //   }
+    //   return <Text textAlign="center">{t(`You need $${NATIVE_CURRENCY.wrapSymbol} token to take part in this ICO.`)}</Text>
+    // }
     if (publicIfoData.status === 'coming_soon') {
       return (
         <>
@@ -165,7 +165,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
         <>
           <CakeBnbTokenSection mb="24px">
             <Label>
-              {t(hasClaimed ? 'Your %symbol% RECLAIMED' : 'Your %symbol% TO RECLAIM', { symbol: currency.symbol })}
+              {t(hasClaimed ? 'Your $%symbol% RECLAIMED' : 'Your $%symbol% TO RECLAIM', { symbol: currency.symbol })}
             </Label>
             <Flex alignItems="center">
               <Value>{getBalanceNumber(userPoolCharacteristics.refundingAmountInLP, currency.decimals)}</Value>
@@ -177,7 +177,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
             />
           </CakeBnbTokenSection>
           <TokenSection primaryToken={ifo.token}>
-            <Label> {t(hasClaimed ? '%symbol% received' : '%symbol% to receive', { symbol: token.symbol })}</Label>
+            <Label> {t(hasClaimed ? '$%symbol% received' : '$%symbol% to receive', { symbol: token.symbol })}</Label>
             <Flex alignItems="center">
               <Value>{getBalanceNumber(userPoolCharacteristics.offeringAmountInToken, token.decimals)}</Value>
               {!hasClaimed && userPoolCharacteristics.offeringAmountInToken.isEqualTo(0) && (

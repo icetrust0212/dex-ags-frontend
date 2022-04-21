@@ -49,7 +49,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({ poolId, ifo, publicIfoD
     .toFixed(2)
   const totalLPCommitted = getBalanceNumber(poolCharacteristic.totalAmountPool, ifo.currency.decimals)
   const totalLPCommittedInUSD = currencyPriceInUSD.times(totalLPCommitted)
-  const totalCommitted = `~$${formatNumber(totalLPCommittedInUSD.toNumber(), 0, 0)} (${totalCommittedPercent}%)`
+  const totalCommitted = `~$${formatNumber(totalLPCommittedInUSD.toNumber(), 2, 2)} (${totalCommittedPercent}%)`
 
   /* Format end */
 
@@ -59,7 +59,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({ poolId, ifo, publicIfoD
         <>
           {poolId === PoolIds.poolBasic && <FooterEntry label={t('Max. LP token entry')} value={maxLpTokens} />}
           <FooterEntry label={t('Funds to raise:')} value={ifo[poolId].raiseAmount} />
-          <FooterEntry label={t('CAKE to burn:')} value={ifo[poolId].cakeToBurn} />
+          <FooterEntry label={t('AGS to burn:')} value={ifo[poolId].cakeToBurn} />
           <FooterEntry
             label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
             value={`$${ifo.tokenOfferingPrice}`}
@@ -83,7 +83,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({ poolId, ifo, publicIfoD
           {poolId === PoolIds.poolUnlimited && <FooterEntry label={t('Additional fee:')} value={taxRate} />}
           <FooterEntry label={t('Total committed:')} value={currencyPriceInUSD.gt(0) ? totalCommitted : null} />
           <FooterEntry label={t('Funds to raise:')} value={ifo[poolId].raiseAmount} />
-          <FooterEntry label={t('CAKE to burn:')} value={ifo[poolId].cakeToBurn} />
+          <FooterEntry label={t('AGS to burn:')} value={ifo[poolId].cakeToBurn} />
           <FooterEntry
             label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
             value={`$${ifo.tokenOfferingPrice ? ifo.tokenOfferingPrice : '?'}`}

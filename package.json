@@ -10,9 +10,9 @@
     "test:config": "react-scripts test --testPathPattern=/src/__tests__/config/",
     "integration-test": "start-server-and-test 'serve -s build -p 3000' http://localhost:3000 'cypress run'",
     "eject": "react-scripts eject",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-    "format:check": "prettier --check '**/*.{js,jsx,ts,tsx}'",
-    "format:write": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "updateLPsAPR": "NODE_PATH=./src ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/updateLPsAPR.ts",
     "prepare": "husky install"
   },
@@ -31,8 +31,8 @@
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
-    "@pancakeswap/uikit": "https://github.com/trust0212/dex-astra-uikit",
     "@pancakeswap/sdk": "https://github.com/trust0212/dex-astra-sdk",
+    "@pancakeswap/uikit": "https://github.com/trust0212/dex-astra-uikit",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/multicodec": "^1.0.0",
     "@types/node": "^13.13.5",

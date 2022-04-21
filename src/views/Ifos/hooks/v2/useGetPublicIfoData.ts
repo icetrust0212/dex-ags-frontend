@@ -8,6 +8,7 @@ import useRefresh from 'hooks/useRefresh'
 import { multicallv2 } from 'utils/multicall'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import { BIG_ZERO } from 'utils/bigNumber'
+import useBUSDPrice, { useBNBBusdPrice } from 'hooks/useBUSDPrice'
 import { PublicIfoData } from '../../types'
 import { getStatus } from '../helpers'
 
@@ -29,7 +30,10 @@ const formatPool = (pool) => ({
  */
 const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   const { address, releaseBlockNumber } = ifo
-  const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol)
+  // const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol)
+  const lpTokenPriceInUsd = useBUSDPrice(ifo.currency) // for initial IFO
+
+  console.log('lpTokenPrice: ', lpTokenPriceInUsd, lpTokenPriceInUsd?.toSignificant())
   const { fastRefresh } = useRefresh()
 
   const [state, setState] = useState({
@@ -132,7 +136,11 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
     fetchIfoData()
   }, [fetchIfoData, fastRefresh])
 
-  return { ...state, currencyPriceInUSD: lpTokenPriceInUsd, fetchIfoData }
+  return {
+    ...state,
+    currencyPriceInUSD: lpTokenPriceInUsd ? new BigNumber(lpTokenPriceInUsd.toSignificant()) : BIG_ZERO,
+    fetchIfoData,
+  }
 }
 
 export default useGetPublicIfoData

@@ -45,7 +45,7 @@ const initialState: PoolsState = {
 export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispatch, getState) => {
   const blockLimits = await fetchPoolsBlockLimits()
   const totalStakings = await fetchPoolsTotalStaking()
-
+  console.log('fetchPoolsPublicDataAsync: ', totalStakings)
   const prices = getTokenPricesFromFarm(getState().farms.data)
 
   const liveData = poolsConfig.map((pool) => {
@@ -105,10 +105,15 @@ export const fetchPoolsStakingLimitsAsync = () => async (dispatch, getState) => 
 export const fetchPoolsUserDataAsync =
   (account: string): AppThunk =>
   async (dispatch) => {
+    console.log('fetchPoolsUserDataAsync_start: ')
     const allowances = await fetchPoolsAllowance(account)
+    console.log('fetchPoolsUserDataAsync_allow: ', allowances)
     const stakingTokenBalances = await fetchUserBalances(account)
+    console.log('fetchPoolsUserDataAsync_balances: ', stakingTokenBalances)
     const stakedBalances = await fetchUserStakeBalances(account)
+    console.log('fetchPoolsUserDataAsync_stakedBalances: ', stakedBalances)
     const pendingRewards = await fetchUserPendingRewards(account)
+    console.log('fetchPoolsUserDataAsync_pendingRewards: ', pendingRewards)
 
     const userData = poolsConfig.map((pool) => ({
       sousId: pool.sousId,

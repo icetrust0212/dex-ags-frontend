@@ -40,7 +40,7 @@ const DetailsView: React.FC<DetailsViewProps> = ({
         </Text>
       </VotingBox>
       <Text color="secondary" textTransform="uppercase" mb="4px" bold fontSize="14px">
-        {t('Your Cake Held Now')}
+        {t('Your AGS Held Now')}
       </Text>
       <Flex alignItems="center" justifyContent="space-between" mb="4px">
         <Text color="textSubtle" fontSize="16px">
@@ -50,13 +50,13 @@ const DetailsView: React.FC<DetailsViewProps> = ({
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="4px">
         <Text color="textSubtle" fontSize="16px">
-          {t('Manual CAKE Pool')}
+          {t('Manual AGS Pool')}
         </Text>
         <Text textAlign="right">{formatNumber(cakePoolBalance, 0, 3)}</Text>
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="4px">
         <Text color="textSubtle" fontSize="16px">
-          {t('Auto CAKE Pool')}
+          {t('Auto AGS Pool')}
         </Text>
         <Text textAlign="right">{formatNumber(cakeVaultBalance, 0, 3)}</Text>
       </Flex>

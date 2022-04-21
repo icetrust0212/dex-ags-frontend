@@ -35,7 +35,7 @@ const Button = styled(UIKitButton)`
   width: 100%;
 
   ${({ theme }) => theme.mediaQueries.md} {
-    min-width: 160px;
+    min-width: 120px;
   }
 `
 

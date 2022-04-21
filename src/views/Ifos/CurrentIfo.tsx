@@ -2,6 +2,7 @@ import React from 'react'
 import { ifosConfig } from 'config/constants'
 import useGetPublicIfoV2Data from 'views/Ifos/hooks/v2/useGetPublicIfoData'
 import useGetWalletIfoV2Data from 'views/Ifos/hooks/v2/useGetWalletIfoData'
+import styled from 'styled-components'
 import IfoFoldableCard from './components/IfoFoldableCard'
 import IfoLayout from './components/IfoLayout'
 import IfoSteps from './components/IfoSteps'
@@ -16,13 +17,28 @@ const Ifo = () => {
   const publicIfoData = useGetPublicIfoV2Data(activeIfo)
   const walletIfoData = useGetWalletIfoV2Data(activeIfo)
 
+  console.log('ifo : ', publicIfoData, walletIfoData)
   return (
     <IfoLayout id="current-ifo">
-      <IfoFoldableCard ifo={activeIfo} publicIfoData={publicIfoData} walletIfoData={walletIfoData} isInitiallyVisible />
+      <CardWrapper>
+        <IfoFoldableCard
+          ifo={activeIfo}
+          publicIfoData={publicIfoData}
+          walletIfoData={walletIfoData}
+          isInitiallyVisible
+        />
+      </CardWrapper>
       <IfoSteps ifo={activeIfo} walletIfoData={walletIfoData} />
-      <IfoQuestions />
+      {/* <IfoQuestions /> */}
     </IfoLayout>
   )
 }
 
+const CardWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: url('/images/hero.png');
+  background-size: cover;
+`
 export default Ifo

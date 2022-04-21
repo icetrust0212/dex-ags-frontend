@@ -1,15 +1,17 @@
+import { NATIVE_CURRENCY } from 'config/constants/tokens'
+
 const config = [
   {
     title: 'What’s the difference between a Basic Sale and Unlimited Sale?',
     description: [
-      'In the Basic Sale, every user can commit a maximum of about 100 USD worth of CAKE-BNB LP Tokens. We calculate the maximum LP amount about 30 minutes before each IFO. The Basic Sale has no participation fee.',
-      'In the Unlimited Sale, there’s no limit to the amount of CAKE-BNB LP Tokens you can commit. However, there’s a fee for participation: see below.',
+      `In the Basic Sale, every user can commit a maximum of about 100 USD worth of $${NATIVE_CURRENCY.wrapSymbol} Tokens. We calculate the maximum $${NATIVE_CURRENCY.wrapSymbol} amount about 30 minutes before each ICO. The Basic Sale has no participation fee.`,
+      `In the Unlimited Sale, there’s no limit to the amount of $${NATIVE_CURRENCY.wrapSymbol} Tokens you can commit. However, there’s a fee for participation: see below.`,
     ],
   },
   {
     title: 'Which sale should I commit to? Can I do both?',
     description: [
-      'You can choose one or both at the same time! If you’re only committing a small amount, we recommend the Basic Sale first. Just remember you need a PancakeSwap Profile in order to participate.',
+      'You can choose one or both at the same time! If you’re only committing a small amount, we recommend the Basic Sale first.',
     ],
   },
   {
@@ -23,13 +25,17 @@ const config = [
   {
     title: 'Where does the participation fee go?',
     description: [
-      'We burn it. The CAKE-BNB LP tokens from the participation fee will be decomposed. We will then use the BNB portion to market buy the CAKE equivalent, and finally throw all of the CAKE into the weekly token burn.',
+      `We burn it. The $${
+        NATIVE_CURRENCY.wrapSymbol
+      } tokens from the participation fee will be decomposed. We will then use the $${
+        NATIVE_CURRENCY.wrapSymbol
+      } portion to market buy the ${'$AGS'} equivalent, and finally throw all of the $AGS into the weekly token burn.`,
     ],
   },
   {
-    title: 'How can I get an achievement for participating in the IFO?',
+    title: 'How can I get an achievement for participating in the ICO?',
     description: [
-      'You need to contribute a minimum of about 10 USD worth of CAKE-BNB LP Tokens to either sale.',
+      `You need to contribute a minimum of about 10 USD worth of $${NATIVE_CURRENCY.wrapSymbol} Tokens to either sale.`,
       'You can contribute to one or both, it doesn’t matter: only your overall contribution is counted for the achievement.',
     ],
   },

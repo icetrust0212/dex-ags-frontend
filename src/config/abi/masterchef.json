@@ -7,7 +7,7 @@
         "type": "address"
       },
       {
-        "internalType": "contract SyrupBar",
+        "internalType": "contract ISyrupBar",
         "name": "_syrup",
         "type": "address"
       },
@@ -794,7 +794,7 @@
     "name": "syrup",
     "outputs": [
       {
-        "internalType": "contract SyrupBar",
+        "internalType": "contract ISyrupBar",
         "name": "",
         "type": "address"
       }

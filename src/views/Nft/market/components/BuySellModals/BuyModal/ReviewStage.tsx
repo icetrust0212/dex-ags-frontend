@@ -10,6 +10,7 @@ import { getBscScanLinkForNft } from 'utils'
 import { Divider, RoundedImage } from '../shared/styles'
 import { BorderedBox, BnbAmountCell } from './styles'
 import { PaymentCurrency } from './types'
+import { NATIVE_CURRENCY } from 'config/constants/tokens'
 
 interface ReviewStageProps {
   nftToBuy: NftToken
@@ -80,7 +81,9 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
           </Text>
           <BnbAmountCell bnbAmount={nftPrice} />
           <Text small color="textSubtle">
-            {t('%symbol% in wallet', { symbol: paymentCurrency === PaymentCurrency.BNB ? 'BNB' : 'WBNB' })}
+            {t('%symbol% in wallet', {
+              symbol: paymentCurrency === PaymentCurrency.BNB ? NATIVE_CURRENCY.symbol : 'WBNB',
+            })}
           </Text>
           {!account ? (
             <Flex justifySelf="flex-end">

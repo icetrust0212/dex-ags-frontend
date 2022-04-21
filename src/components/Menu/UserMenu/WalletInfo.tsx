@@ -6,7 +6,7 @@ import useAuth from 'hooks/useAuth'
 import { useTranslation } from 'contexts/Localization'
 import { getBscScanLink } from 'utils'
 import { getFullDisplayBalance, formatBigNumber } from 'utils/formatBalance'
-import tokens from 'config/constants/tokens'
+import tokens, { NATIVE_CURRENCY } from 'config/constants/tokens'
 import CopyAddress from './CopyAddress'
 
 interface WalletInfoProps {
@@ -35,13 +35,13 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
       {hasLowBnbBalance && (
         <Message variant="warning" mb="24px">
           <Box>
-            <Text fontWeight="bold">{t('BNB Balance Low')}</Text>
+            <Text fontWeight="bold">{t(`${NATIVE_CURRENCY.symbol} Balance Low`)}</Text>
             <Text as="p">{t('You need BNB for transaction fees.')}</Text>
           </Box>
         </Message>
       )}
       <Flex alignItems="center" justifyContent="space-between">
-        <Text color="textSubtle">{t('ASTRA Balance')}</Text>
+        <Text color="textSubtle">{t('ASTR Balance')}</Text>
         {fetchStatus !== FetchStatus.SUCCESS ? (
           <Skeleton height="22px" width="60px" />
         ) : (

@@ -26,7 +26,7 @@ import HowToPlay from './components/HowToPlay'
 import useShowMoreUserHistory from './hooks/useShowMoreUserRounds'
 
 const LotteryPage = styled.div`
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - var(--HeaderFooterHeight));
 `
 
 const Lottery = () => {

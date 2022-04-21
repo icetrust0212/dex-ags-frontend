@@ -11,7 +11,7 @@ const priceHelperLps: SerializedFarmConfig[] = [
    */
   {
     pid: null,
-    lpSymbol: 'USDT/WASTRA',
+    lpSymbol: 'USDT/WASTR',
     lpAddresses: {
       97: '',
       592: '0x806f746a7c4293092ac7aa604347BE123322dF1e',

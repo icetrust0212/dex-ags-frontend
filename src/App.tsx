@@ -20,7 +20,7 @@ import EasterEgg from './components/EasterEgg'
 import GlobalCheckClaimStatus from './components/GlobalCheckClaimStatus'
 import history from './routerHistory'
 // Views included in the main bundle
-// import Pools from './views/Pools'
+import Pools from './views/Pools'
 import Swap from './views/Swap'
 import {
   RedirectDuplicateTokenIds,
@@ -36,7 +36,7 @@ const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
 // const FarmAuction = lazy(() => import('./views/FarmAuction'))
 // const Lottery = lazy(() => import('./views/Lottery'))
-// const Ifos = lazy(() => import('./views/Ifos'))
+const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
 // const Teams = lazy(() => import('./views/Teams'))
 // const Team = lazy(() => import('./views/Teams/Team'))
@@ -89,13 +89,14 @@ const App: React.FC = () => {
               <Farms />
             </Route>
             <Route path="/pools">
-              <Farms tokenMode/>
+              {/* <Farms tokenMode/> */}
+              <Pools />
+            </Route>
+            <Route path="/launchpad">
+              <Ifos />
             </Route>
             {/* <Route path="/lottery">
               <Lottery />
-            </Route>
-            <Route path="/ifo">
-              <Ifos />
             </Route>
             <Route exact path="/teams">
               <Teams />

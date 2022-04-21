@@ -14,6 +14,7 @@ import Balance from 'components/Balance'
 import { usePriceCakeBusd } from 'state/farms/hooks'
 import { useCakeVault } from 'state/pools/hooks'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
+import { NATIVE_CURRENCY } from 'config/constants/tokens'
 
 interface BountyModalProps {
   onDismiss?: () => void
@@ -67,7 +68,7 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
         toastSuccess(
           t('Bounty collected!'),
           <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-            {t('CAKE bounty has been sent to your wallet.')}
+            {t(`${NATIVE_CURRENCY.symbol} bounty has been sent to your wallet.`)}
           </ToastDescriptionWithTx>,
         )
         setPendingTx(false)
@@ -85,7 +86,7 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
       <Flex alignItems="flex-start" justifyContent="space-between">
         <Text>{t('You’ll claim')}</Text>
         <Flex flexDirection="column">
-          <Balance bold value={cakeBountyToDisplay} decimals={7} unit=" CAKE" />
+          <Balance bold value={cakeBountyToDisplay} decimals={7} unit={` ${NATIVE_CURRENCY.symbol}`} />
           <Text fontSize="12px" color="textSubtle">
             <Balance
               fontSize="12px"
@@ -103,7 +104,7 @@ const BountyModal: React.FC<BountyModalProps> = ({ onDismiss, TooltipComponent }
         <Text fontSize="14px" color="textSubtle">
           {t('Pool total pending yield')}
         </Text>
-        <Balance color="textSubtle" value={totalYieldToDisplay} unit=" CAKE" />
+        <Balance color="textSubtle" value={totalYieldToDisplay} unit={` ${NATIVE_CURRENCY.symbol}`} />
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="24px">
         <Text fontSize="14px" color="textSubtle">

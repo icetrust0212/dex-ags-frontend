@@ -6,11 +6,12 @@ import { getMasterchefContract } from 'utils/contractHelpers'
 import { getAddress } from 'utils/addressHelpers'
 import { simpleRpcProvider } from 'utils/providers'
 import BigNumber from 'bignumber.js'
+import { NATIVE_CURRENCY } from 'config/constants/tokens'
 
 // Pool 0, Cake / Cake is a different kind of contract (master chef)
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
-const nonBnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'BNB')
-const bnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'BNB')
+const nonBnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== NATIVE_CURRENCY.symbol)
+const bnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === NATIVE_CURRENCY.symbol)
 const nonMasterPools = poolsConfig.filter((pool) => pool.sousId !== 0)
 const masterChefContract = getMasterchefContract()
 
@@ -73,22 +74,25 @@ export const fetchUserStakeBalances = async (account) => {
 }
 
 export const fetchUserPendingRewards = async (account) => {
-  const calls = nonMasterPools.map((p) => ({
-    address: getAddress(p.contractAddress),
-    name: 'pendingReward',
-    params: [account],
-  }))
-  const res = await multicall(sousChefABI, calls)
-  const pendingRewards = nonMasterPools.reduce(
-    (acc, pool, index) => ({
-      ...acc,
-      [pool.sousId]: new BigNumber(res[index]).toJSON(),
-    }),
-    {},
-  )
-
+  let pendingRewards
+  if (nonMasterPools && nonMasterPools.length > 0) {
+    const calls = nonMasterPools.map((p) => ({
+      address: getAddress(p.contractAddress),
+      name: 'pendingReward',
+      params: [account],
+    }))
+    const res = await multicall(sousChefABI, calls)
+    pendingRewards = nonMasterPools.reduce(
+      (acc, pool, index) => ({
+        ...acc,
+        [pool.sousId]: new BigNumber(res[index]).toJSON(),
+      }),
+      {},
+    )
+  }
+  console.log('fetchPoolsUserDataAsync_pendingRewards_in: ', account, pendingRewards)
   // Cake / Cake pool
-  const pendingReward = await masterChefContract.pendingCake('0', account)
+  const pendingReward = await masterChefContract.pendingAgs('0', account)
 
   return { ...pendingRewards, 0: new BigNumber(pendingReward.toString()).toJSON() }
 }

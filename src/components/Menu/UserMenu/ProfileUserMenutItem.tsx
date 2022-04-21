@@ -17,17 +17,21 @@ const Dot = styled.div`
   height: 8px;
   width: 8px;
 `
+const Soon = styled.div`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 20px;
+`
 
 const ProfileUserMenuItem: React.FC<ProfileUserMenuItemProps> = ({ isLoading, hasProfile }) => {
   const { account } = useWeb3React()
   const { t } = useTranslation()
 
   const handleClick = () => {
-    history.push(`${nftsBaseUrl}/profile/${account.toLowerCase()}/achievements`)
+    // history.push(`${nftsBaseUrl}/profile/${account.toLowerCase()}/achievements`)
   }
 
   const handleNoProfileClick = () => {
-    history.push('/create-profile')
+    // history.push('/create-profile')
   }
 
   if (isLoading) {
@@ -43,7 +47,8 @@ const ProfileUserMenuItem: React.FC<ProfileUserMenuItemProps> = ({ isLoading, ha
       <UserMenuItem as="button" onClick={handleNoProfileClick}>
         <Flex alignItems="center" justifyContent="space-between" width="100%">
           {t('Make a Profile')}
-          <Dot />
+          {/* <Dot /> */}
+          <Soon>Soon</Soon>
         </Flex>
       </UserMenuItem>
     )

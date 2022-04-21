@@ -4,6 +4,7 @@ import { Currency, ETHER, Token, currencyEquals } from '@pancakeswap/sdk'
 import { useMemo } from 'react'
 import { arrayify } from 'ethers/lib/utils'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
+import { NATIVE_CURRENCY } from 'config/constants/tokens'
 import {
   TokenAddressMap,
   useDefaultTokenList,
@@ -188,7 +189,7 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
 }
 
 export function useCurrency(currencyId: string | undefined): Currency | null | undefined {
-  const isBNB = currencyId?.toUpperCase() === 'BNB'
+  const isBNB = currencyId?.toUpperCase() === NATIVE_CURRENCY.symbol
   const token = useToken(isBNB ? undefined : currencyId)
   return isBNB ? ETHER : token
 }

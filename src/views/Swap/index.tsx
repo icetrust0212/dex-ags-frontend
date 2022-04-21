@@ -223,8 +223,8 @@ export default function Swap({ history }: RouteComponentProps) {
   const shouldShowSwapWarning = (swapCurrency) => {
     const isWarningToken = Object.entries(SwapWarningTokens).find((warningTokenConfig) => {
       const warningTokenData = warningTokenConfig[1]
-      console.log('swapCurrency:', swapCurrency   )
-      return (swapCurrency.symbol !== 'ASTRA') && (swapCurrency?.address === warningTokenData?.address)
+      console.log('swapCurrency:', swapCurrency)
+      return swapCurrency.symbol !== 'ASTR' && swapCurrency?.address === warningTokenData?.address
     })
     return Boolean(isWarningToken)
   }

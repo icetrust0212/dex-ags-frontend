@@ -12,20 +12,31 @@ interface SerializedTokenList {
   [symbol: string]: SerializedToken
 }
 
+export const NATIVE_CURRENCY = {
+  symbol: 'ASTR',
+  wrapSymbol: 'WASTR',
+  address: '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720',
+}
+
+export const LP_TOKEN = {
+  name: 'Arthswap LPs',
+  symbol: 'ARSW-LP',
+}
+
 export const mainnetTokens = {
   wbnb: new Token(
     MAINNET,
     '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720',
     18,
-    'WASTRA',
-    'Wrapped ASTRA',
+    'WASTR',
+    'Wrapped ASTR',
     'https://www.Astra.com/',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  bnb: new Token(MAINNET, '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720', 18, 'ASTRA', 'ASTRA', 'https://www.Astra.com/'),
+  bnb: new Token(MAINNET, '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720', 18, 'ASTR', 'ASTR', 'https://www.Astra.com/'),
   cake: new Token(
     MAINNET,
-    '0x8CBe029203Db5DF4FbCC830c4478939A87Ca593a',
+    '0xa2aa054fbed965D5FEc3C7Be3f5fa13dcAfAe235',
     18,
     'AGS',
     'AGS Token',
@@ -47,14 +58,7 @@ export const mainnetTokens = {
     'Dai Stablecoin',
     'https://www.makerdao.com/',
   ),
-  usdt: new Token(
-    MAINNET,
-    '0x3795C36e7D12A8c252A20C5a7B455f7c57b60283',
-    6,
-    'USDT',
-    'Tether USD',
-    'https://tether.to/',
-  ),
+  usdt: new Token(MAINNET, '0x3795C36e7D12A8c252A20C5a7B455f7c57b60283', 6, 'USDT', 'Tether USD', 'https://tether.to/'),
   btcb: new Token(
     MAINNET,
     '0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA',
@@ -63,7 +67,7 @@ export const mainnetTokens = {
     'Astra BTC',
     'https://bitcoin.org/',
   ),
-  
+
   eth: new Token(
     MAINNET,
     '0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c',
@@ -107,7 +111,7 @@ export const mainnetTokens = {
   ),
   syrup: new Token(
     MAINNET,
-    '0x77dE544E59aAF406E1Cd13318088BAbE10564A87',
+    '0x9dccA3fa2d52D3af2ffc2fc366F6CF27874a121d',
     18,
     'SYRUP',
     'SyrupBar Token',

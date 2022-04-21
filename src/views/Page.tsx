@@ -11,9 +11,12 @@ const StyledPage = styled.div`
   width: 100%;
   padding: 16px;
   padding-bottom: 0;
-  min-height: calc(100vh - 64px);
-  background: ${({ theme }) => theme.colors.gradients.bubblegum};
+  min-height: calc(100vh - var(--HeaderFooterHeight));
+  // background: ${({ theme }) => theme.colors.gradients.bubblegum};
 
+  background: url('/images/hero.png');
+  background-size: cover !important;
+  background-repeat: no-repeat;
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
   }
@@ -25,7 +28,7 @@ const StyledPage = styled.div`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     padding-top: 32px;
-    min-height: calc(100vh - 64px);
+    min-height: calc(100vh - var(--HeaderFooterHeight));
   }
 `
 

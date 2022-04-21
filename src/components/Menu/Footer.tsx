@@ -35,7 +35,7 @@ const BubbleWrapper = styled(Flex)`
 `
 
 const Footer = () => {
-  return (<></>);
+  return <></>
   const { t } = useTranslation()
   return (
     <Wrapper>

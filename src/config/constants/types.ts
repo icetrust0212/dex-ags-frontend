@@ -70,7 +70,7 @@ interface FarmConfigBaseProps {
     rewardPerBlock: number
     earnLabel: string
     endBlock: number
-  },
+  }
   isTokenOnly?: boolean
 }
 

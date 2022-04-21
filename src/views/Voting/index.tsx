@@ -19,7 +19,7 @@ const Voting = () => {
   return (
     <>
       <PageMeta />
-      <Flex flexDirection="column" minHeight="calc(100vh - 64px)">
+      <Flex flexDirection="column" minHeight="calc(100vh - var(--HeaderFooterHeight))">
         <Chrome>
           <Hero />
         </Chrome>

@@ -4,7 +4,7 @@ import every from 'lodash/every'
 import { Stepper, Step, StepStatus, Card, CardBody, Heading, Text, Button, Link, OpenNewIcon } from '@pancakeswap/uikit'
 import { Link as RouterLink } from 'react-router-dom'
 import { useWeb3React } from '@web3-react/core'
-import { BASE_ADD_LIQUIDITY_URL } from 'config'
+import { BASE_ADD_LIQUIDITY_URL, BASE_SWAP_URL } from 'config'
 import { Ifo } from 'config/constants/types'
 import { WalletIfoData } from 'views/Ifos/types'
 import { useTranslation } from 'contexts/Localization'
@@ -13,6 +13,7 @@ import Container from 'components/Layout/Container'
 import { useProfile } from 'state/profile/hooks'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
 import ConnectWalletButton from 'components/ConnectWalletButton'
+import { mainnetTokens, NATIVE_CURRENCY } from '../../../config/constants/tokens'
 
 interface Props {
   ifo: Ifo
@@ -39,7 +40,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
   const { t } = useTranslation()
   const { balance } = useTokenBalance(ifo.currency.address)
   const stepsValidationStatus = [
-    hasProfile,
+    // hasProfile,
     balance.isGreaterThan(0),
     poolBasic.amountTokenCommittedInLP.isGreaterThan(0) || poolUnlimited.amountTokenCommittedInLP.isGreaterThan(0),
     poolBasic.hasClaimed || poolUnlimited.hasClaimed,
@@ -84,7 +85,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
               {t('Activate your Profile')}
             </Heading>
             <Text color="textSubtle" small mb="16px">
-              {t('You’ll need an active PancakeSwap Profile to take part in an IFO!')}
+              {t('You’ll need an active PancakeSwap Profile to take part in an ICO!')}
             </Text>
             {renderAccountStatus()}
           </CardBody>
@@ -93,20 +94,20 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
         return (
           <CardBody>
             <Heading as="h4" color="secondary" mb="16px">
-              {t('Get CAKE-BNB LP Tokens')}
+              {t(`Get $${ifo.currency.symbol} Tokens`)}
             </Heading>
             <Text color="textSubtle" small>
-              {t('Stake CAKE and BNB in the liquidity pool to get LP tokens.')} <br />
-              {t('You’ll spend them to buy IFO sale tokens.')}
+              {t(`Get $${ifo.currency.symbol} tokens to participated in an ICO.`)} <br />
+              {t('You’ll spend them to buy ICO sale tokens.')}
             </Text>
             <Button
               as={Link}
               external
-              href={`${BASE_ADD_LIQUIDITY_URL}/BNB/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82`}
+              href={`${BASE_SWAP_URL}/${ifo.currency.address}`}
               endIcon={<OpenNewIcon color="white" />}
               mt="16px"
             >
-              {t('Get LP tokens')}
+              {t(`Get $${ifo.currency.symbol} tokens`)}
             </Button>
           </CardBody>
         )
@@ -114,10 +115,13 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
         return (
           <CardBody>
             <Heading as="h4" color="secondary" mb="16px">
-              {t('Commit LP Tokens')}
+              {t(`Commit $${ifo.currency.symbol} Tokens`)}
             </Heading>
             <Text color="textSubtle" small>
-              {t('When the IFO sales are live, you can “commit” your LP tokens to buy the tokens being sold.')} <br />
+              {t(
+                `When the ICO sales are live, you can “commit” your $${ifo.currency.symbol} tokens to buy the tokens being sold.`,
+              )}{' '}
+              <br />
               {t('We recommend committing to the Basic Sale first, but you can do both if you like.')}
             </Text>
           </CardBody>
@@ -130,7 +134,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
             </Heading>
             <Text color="textSubtle" small>
               {t(
-                'After the IFO sales finish, you can claim any IFO tokens that you bought, and any unspent CAKE-BNB LP tokens will be returned to your wallet.',
+                `After the ICO sales finish, you can claim any ICO tokens that you bought, and any unspent $${ifo.currency.symbol} tokens will be returned to your wallet.`,
               )}
             </Text>
           </CardBody>
@@ -154,7 +158,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
             statusFirstPart={getStatusProp(index)}
             statusSecondPart={getStatusProp(index + 1)}
           >
-            <Card>{renderCardBody(index)}</Card>
+            <Card>{renderCardBody(index + 1)}</Card>
           </Step>
         ))}
       </Stepper>

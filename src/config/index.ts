@@ -23,9 +23,10 @@ export const BASE_BSC_SCAN_URLS = {
 // CAKE/Block in src/views/Home/components/CakeDataRow.tsx = 15 (40 - Amount sent to burn pool)
 export const CAKE_PER_BLOCK = 40
 export const BLOCKS_PER_YEAR = (60 / BSC_BLOCK_TIME) * 60 * 24 * 365 // 10512000
-export const CAKE_PER_YEAR =  CAKE_PER_BLOCK * BLOCKS_PER_YEAR
-export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : `https://pancakeswap.finance`
+export const CAKE_PER_YEAR = CAKE_PER_BLOCK * BLOCKS_PER_YEAR
+export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : `https://ags.finance`
 export const BASE_ADD_LIQUIDITY_URL = `${BASE_URL}/add`
+export const BASE_SWAP_URL = `${BASE_URL}/swap`
 export const BASE_BSC_SCAN_URL = BASE_BSC_SCAN_URLS[ChainId.MAINNET]
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow(18)
 export const DEFAULT_GAS_LIMIT = 200000

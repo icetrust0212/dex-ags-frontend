@@ -33,7 +33,7 @@ const CakeVaultCard: React.FC<CakeVaultProps> = ({ pool, showStakedOnly }) => {
     fees: { performanceFee },
     pricePerFullShare,
   } = useCakeVault()
-
+  console.log('cakeVault: ', userShares, isVaultUserDataLoading, performanceFee, pricePerFullShare)
   const { cakeAsBigNumber } = convertSharesToCake(userShares, pricePerFullShare)
 
   const accountHasSharesStaked = userShares && userShares.gt(0)

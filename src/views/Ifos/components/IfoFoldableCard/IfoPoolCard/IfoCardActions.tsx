@@ -33,13 +33,13 @@ const IfoCardActions: React.FC<Props> = ({ poolId, ifo, publicIfoData, walletIfo
     return <ConnectWalletButton width="100%" />
   }
 
-  if (!hasProfile) {
-    return (
-      <Button as={Link} to={`${nftsBaseUrl}/profile/${account.toLowerCase()}`} width="100%">
-        {t('Activate your Profile')}
-      </Button>
-    )
-  }
+  // if (!hasProfile) {
+  //   return (
+  //     <Button as={Link} to={`${nftsBaseUrl}/profile/${account.toLowerCase()}`} width="100%">
+  //       {t('Activate your Profile')}
+  //     </Button>
+  //   )
+  // }
 
   return (
     <>

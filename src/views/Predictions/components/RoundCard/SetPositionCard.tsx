@@ -30,6 +30,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import PositionTag from '../PositionTag'
 import useSwiper from '../../hooks/useSwiper'
 import FlexRow from '../FlexRow'
+import { NATIVE_CURRENCY } from 'config/constants/tokens'
 
 interface SetPositionCardProps {
   position: BetPosition
@@ -55,7 +56,7 @@ const getButtonProps = (
   }
 
   if (!hasSufficientBalance()) {
-    return { key: 'Insufficient BNB balance', disabled: true }
+    return { key: `Insufficient ${NATIVE_CURRENCY.symbol} balance`, disabled: true }
   }
 
   if (value.eq(0)) {
@@ -166,11 +167,11 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
     const hasSufficientBalance = inputAmount.gt(0) && inputAmount.lte(maxBalance)
 
     if (!hasSufficientBalance) {
-      setErrorMessage({ key: 'Insufficient BNB balance' })
+      setErrorMessage({ key: `Insufficient ${NATIVE_CURRENCY.symbol} balance` })
     } else if (inputAmount.gt(0) && inputAmount.lt(minBetAmount)) {
       setErrorMessage({
         key: 'A minimum amount of %num% %token% is required',
-        data: { num: formatBigNumber(minBetAmount), token: 'BNB' },
+        data: { num: formatBigNumber(minBetAmount), token: NATIVE_CURRENCY.symbol },
       })
     } else {
       setErrorMessage(null)

@@ -35,7 +35,7 @@ const cardConfig: CardConfig = {
   [PoolIds.poolUnlimited]: {
     title: 'Unlimited Sale',
     variant: 'violet',
-    tooltip: 'No limits on the amount you can commit. Additional fee applies when claiming.',
+    tooltip: 'No limits on the amount you can commit.',
   },
 }
 
@@ -54,7 +54,7 @@ const SmallCard: React.FC<IfoCardProps> = ({ poolId, ifo, publicIfoData, walletI
         <CardHeader variant={config.variant}>
           <Flex justifyContent="space-between" alignItems="center">
             <Text bold fontSize="20px">
-              {t(config.title)}
+              {t(ifo.name)}
             </Text>
             <div ref={targetRef}>
               <HelpIcon />

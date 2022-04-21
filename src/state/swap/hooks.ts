@@ -11,6 +11,7 @@ import useParsedQueryString from 'hooks/useParsedQueryString'
 import { useTranslation } from 'contexts/Localization'
 import { isAddress } from 'utils'
 import { computeSlippageAdjustedAmounts } from 'utils/prices'
+import { NATIVE_CURRENCY } from 'config/constants/tokens'
 import { AppDispatch, AppState } from '../index'
 import { useCurrencyBalances } from '../wallet/hooks'
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions'
@@ -33,7 +34,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? 'BNB' : '',
+          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? NATIVE_CURRENCY.symbol : '',
         }),
       )
     },
@@ -202,10 +203,10 @@ function parseCurrencyFromURLParameter(urlParam: any): string {
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
-    if (urlParam.toUpperCase() === 'BNB') return 'BNB'
-    if (valid === false) return 'BNB'
+    if (urlParam.toUpperCase() === NATIVE_CURRENCY.symbol) return NATIVE_CURRENCY.symbol
+    if (valid === false) return NATIVE_CURRENCY.symbol
   }
-  return 'BNB' ?? ''
+  return NATIVE_CURRENCY.symbol ?? ''
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {

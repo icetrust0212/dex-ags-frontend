@@ -51,25 +51,25 @@ const Achievement: React.FC<Props> = ({ ifo, publicIfoData }) => {
           </Text>
           <Flex>
             <Text bold mr="8px">
-              {t('IFO Shopper: %title%', { title: campaignTitle })}
+              {t('ICO Shopper: %title%', { title: campaignTitle })}
             </Text>
             <Flex alignItems="center" mr="8px">
               <PrizeIcon color="textSubtle" width="16px" mr="4px" />
               <Text color="textSubtle">{publicIfoData.numberPoints}</Text>
             </Flex>
           </Flex>
-          {publicIfoData.currencyPriceInUSD.gt(0) ? (
+          {/* {publicIfoData.currencyPriceInUSD.gt(0) ? (
             <Text color="textSubtle" fontSize="12px">
-              {t('Commit ~%amount% LP in total to earn!', { amount: minLpForAchievement.toFixed(3) })}
+              {t(`Commit ~%amount% $${ifo.currency.symbol} in total to earn!`, { amount: minLpForAchievement.toFixed(3) })}
             </Text>
           ) : (
             <Skeleton minHeight={18} width={80} />
-          )}
+          )} */}
         </Flex>
       </AchievementFlex>
       <Flex alignItems="flex-end" flexDirection="column">
         <StyledLinkExternal href={ifo.articleUrl} mb="8px">
-          {t('Learn more about %title%', { title: campaignTitle })}
+          {t('About %title%', { title: campaignTitle })}
         </StyledLinkExternal>
         <StyledLinkExternal href={getBscScanLink(ifo.address, 'address')}>{t('View Contract')}</StyledLinkExternal>
       </Flex>

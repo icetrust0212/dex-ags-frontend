@@ -7,7 +7,7 @@ import multicall from 'utils/multicall'
 import { getAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { getSouschefV2Contract } from 'utils/contractHelpers'
-import tokens from 'config/constants/tokens'
+import tokens, { NATIVE_CURRENCY } from 'config/constants/tokens'
 
 export const fetchPoolsBlockLimits = async () => {
   const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
@@ -39,8 +39,8 @@ export const fetchPoolsBlockLimits = async () => {
 }
 
 export const fetchPoolsTotalStaking = async () => {
-  const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'BNB')
-  const bnbPool = poolsConfig.filter((p) => p.stakingToken.symbol === 'BNB')
+  const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== NATIVE_CURRENCY.symbol)
+  const bnbPool = poolsConfig.filter((p) => p.stakingToken.symbol === NATIVE_CURRENCY.symbol)
 
   const callsNonBnbPools = nonBnbPools.map((poolConfig) => {
     return {
@@ -87,7 +87,7 @@ export const fetchPoolsStakingLimits = async (
   poolsWithStakingLimit: number[],
 ): Promise<{ [key: string]: BigNumber }> => {
   const validPools = poolsConfig
-    .filter((p) => p.stakingToken.symbol !== 'BNB' && !p.isFinished)
+    .filter((p) => p.stakingToken.symbol !== NATIVE_CURRENCY.symbol && !p.isFinished)
     .filter((p) => !poolsWithStakingLimit.includes(p.sousId))
 
   // Get the staking limit for each valid pool

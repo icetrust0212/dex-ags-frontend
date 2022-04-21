@@ -8,6 +8,9 @@ declare module 'styled-components' {
 }
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --HeaderFooterHeight: 64px;
+  }
   * {
     font-family: 'Kanit', sans-serif;
   }

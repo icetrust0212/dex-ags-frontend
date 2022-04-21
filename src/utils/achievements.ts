@@ -17,7 +17,7 @@ export const getAchievementTitle = (campaign: Campaign): TranslatableText => {
   switch (campaign.type) {
     case 'ifo':
       return {
-        key: 'IFO Shopper: %title%',
+        key: 'ICO Shopper: %title%',
         data: {
           title: campaign.title as string,
         },

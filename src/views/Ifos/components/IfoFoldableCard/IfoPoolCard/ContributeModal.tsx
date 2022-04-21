@@ -45,6 +45,7 @@ const ContributeModal: React.FC<Props> = ({
   const { limitPerUserInLP } = publicPoolCharacteristics
   const { amountTokenCommittedInLP } = userPoolCharacteristics
   const { contract } = walletIfoData
+  console.log('ifoContract: ', contract)
   const [value, setValue] = useState('')
   const { account } = useWeb3React()
   const { callWithGasPrice } = useCallWithGasPrice()
@@ -69,10 +70,11 @@ const ContributeModal: React.FC<Props> = ({
         })
       },
       onConfirm: () => {
+        console.log('ifo_deposit: ', valueWithTokenDecimals.toString(), poolId === PoolIds.poolBasic ? 0 : 1)
         return callWithGasPrice(
           contract,
           'depositPool',
-          [valueWithTokenDecimals.toString(), poolId === PoolIds.poolBasic ? 0 : 1],
+          [valueWithTokenDecimals.toFixed(0).toString(), poolId === PoolIds.poolBasic ? 0 : 1],
           {
             gasPrice,
           },
@@ -106,7 +108,7 @@ const ContributeModal: React.FC<Props> = ({
           <Text>{t('Commit')}:</Text>
           <Flex flexGrow={1} justifyContent="flex-end">
             <Image
-              src={`/images/farms/${currency.symbol.split(' ')[0].toLocaleLowerCase()}.svg`}
+              src={`/images/farms/${currency.symbol.split(' ')[0].toLocaleLowerCase()}.png`}
               width={24}
               height={24}
             />
@@ -139,11 +141,11 @@ const ContributeModal: React.FC<Props> = ({
             </Button>
           ))}
         </Flex>
-        <Text color="textSubtle" fontSize="12px" mb="24px">
+        {/* <Text color="textSubtle" fontSize="12px" mb="24px">
           {t(
             'If you don’t commit enough LP tokens, you may not receive any IFO tokens at all and will only receive a full refund of your LP tokens.',
           )}
-        </Text>
+        </Text> */}
         <ApproveConfirmButtons
           isApproveDisabled={isConfirmed || isConfirming || isApproved}
           isApproving={isApproving}

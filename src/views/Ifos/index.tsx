@@ -18,10 +18,10 @@ const Ifos = () => {
         <Flex justifyContent="center" alignItems="center" mb="32px">
           <ButtonMenu activeIndex={!isExact ? 1 : 0} scale="sm" variant="subtle">
             <ButtonMenuItem as={Link} to={`${url}`}>
-              {t('Next IFO')}
+              {t('Next ICO')}
             </ButtonMenuItem>
             <ButtonMenuItem id="past-ifos-button" as={Link} to={`${url}/history`}>
-              {t('Past IFOs')}
+              {t('Past ICO')}
             </ButtonMenuItem>
           </ButtonMenu>
         </Flex>

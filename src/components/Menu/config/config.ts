@@ -6,41 +6,36 @@ export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
 const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
   {
-    label: t('Swap'),
-    icon: 'Swap',
+    label: t('Trade'),
     href: '/swap',
-    showItemsOnMobile: false,
-    items: []
+    icon: 'Swap',
+    items: [
+      {
+        label: t('Swap'),
+        href: '/swap',
+      },
+      {
+        label: t('Liquidity'),
+        href: '/liquidity',
+      },
+    ],
   },
   {
-    label: t('Liquidity'),
-    icon: 'Liquidity',
-    href: '/liquidity',
-    showItemsOnMobile: false,
-    items: []
-  },
-  {
-    label: t('Farms'),
-    icon: 'Earn',
+    label: t('Earn'),
     href: '/farms',
-    items: []
+    icon: 'Earn',
+    items: [
+      {
+        label: t('Farms'),
+        href: '/farms',
+      },
+      {
+        label: t('Pools'),
+        href: '/pools',
+      },
+    ],
   },
-  
-  // {
-  //   label: t('Earn'),
-  //   href: '/farms',
-  //   icon: 'Earn',
-  //   items: [
-  //     {
-  //       label: t('Farms'),
-  //       href: '/farms',
-  //     },
-  //     {
-  //       label: t('Pools'),
-  //       href: '/pools',
-  //     },
-  //   ],
-  // },
+
   // {
   //   label: t('Win'),
   //   href: '/prediction',
@@ -75,46 +70,46 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
   //     },
   //   ],
   // },
-  // {
-  //   label: '',
-  //   href: '/info',
-  //   icon: 'More',
-  //   hideSubNav: true,
-  //   items: [
-  //     {
-  //       label: t('Info'),
-  //       href: '/info',
-  //     },
-  //     {
-  //       label: t('IFO'),
-  //       href: '/ifo',
-  //     },
-  //     {
-  //       label: t('Voting'),
-  //       href: '/voting',
-  //     },
-  //     {
-  //       type: DropdownMenuItemType.DIVIDER,
-  //     },
-  //     {
-  //       label: t('Leaderboard'),
-  //       href: '/teams',
-  //     },
-  //     {
-  //       type: DropdownMenuItemType.DIVIDER,
-  //     },
-  //     {
-  //       label: t('Blog'),
-  //       href: 'https://medium.com/pancakeswap',
-  //       type: DropdownMenuItemType.EXTERNAL_LINK,
-  //     },
-  //     {
-  //       label: t('Docs'),
-  //       href: 'https://docs.pancakeswap.finance',
-  //       type: DropdownMenuItemType.EXTERNAL_LINK,
-  //     },
-  //   ],
-  // },
+  {
+    label: '',
+    href: '/info',
+    icon: 'More',
+    hideSubNav: true,
+    items: [
+      // {
+      //   label: t('Info'),
+      //   href: '/info',
+      // },
+      {
+        label: t('Launchpad'),
+        href: '/launchpad',
+      },
+      // {
+      //   label: t('Voting'),
+      //   href: '/voting',
+      // },
+      // {
+      //   type: DropdownMenuItemType.DIVIDER,
+      // },
+      // {
+      //   label: t('Leaderboard'),
+      //   href: '/teams',
+      // },
+      // {
+      //   type: DropdownMenuItemType.DIVIDER,
+      // },
+      {
+        label: t('Blog'),
+        href: 'https://altergrimace.medium.com/',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
+        label: t('Docs'),
+        href: 'https://agsfinance.gitbook.io',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+    ],
+  },
 ]
 
 export default config

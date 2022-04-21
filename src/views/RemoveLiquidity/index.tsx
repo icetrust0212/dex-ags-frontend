@@ -8,6 +8,7 @@ import { Button, Text, AddIcon, ArrowDownIcon, CardBody, Slider, Box, Flex, useM
 import { RouteComponentProps } from 'react-router'
 import { BigNumber } from '@ethersproject/bignumber'
 import { useTranslation } from 'contexts/Localization'
+import { LP_TOKEN, NATIVE_CURRENCY } from 'config/constants/tokens'
 import { AutoColumn, ColumnCenter } from '../../components/Layout/Column'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
@@ -113,7 +114,7 @@ export default function RemoveLiquidity({
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Arthswap LPs',
+      name: LP_TOKEN.name,
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,
@@ -542,15 +543,17 @@ export default function RemoveLiquidity({
                             currencyB === ETHER ? WETH[chainId].address : currencyIdB
                           }`}
                         >
-                          {t('Receive WBNB')}
+                          {t(`Receive ${NATIVE_CURRENCY.wrapSymbol}`)}
                         </StyledInternalLink>
                       ) : oneCurrencyIsWETH ? (
                         <StyledInternalLink
-                          to={`/remove/${currencyA && currencyEquals(currencyA, WETH[chainId]) ? 'BNB' : currencyIdA}/${
-                            currencyB && currencyEquals(currencyB, WETH[chainId]) ? 'BNB' : currencyIdB
+                          to={`/remove/${
+                            currencyA && currencyEquals(currencyA, WETH[chainId]) ? NATIVE_CURRENCY.symbol : currencyIdA
+                          }/${
+                            currencyB && currencyEquals(currencyB, WETH[chainId]) ? NATIVE_CURRENCY.symbol : currencyIdB
                           }`}
                         >
-                          {t('Receive BNB')}
+                          {t(`Receive ${NATIVE_CURRENCY.symbol}`)}
                         </StyledInternalLink>
                       ) : null}
                     </RowBetween>

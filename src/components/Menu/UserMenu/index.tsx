@@ -15,9 +15,15 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import { FetchStatus, useGetBnbBalance } from 'hooks/useTokenBalance'
 import { useTranslation } from 'contexts/Localization'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
+import styled from 'styled-components'
 import WalletModal, { WalletView, LOW_BNB_BALANCE } from './WalletModal'
 import ProfileUserMenuItem from './ProfileUserMenutItem'
 import WalletUserMenuItem from './WalletUserMenuItem'
+
+const Soon = styled.div`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 20px;
+`
 
 const UserMenu = () => {
   const { t } = useTranslation()
@@ -42,8 +48,12 @@ const UserMenu = () => {
         {t('Transactions')}
       </UserMenuItem>
       <UserMenuDivider />
-      <UserMenuItem as="button" onClick={() => history.push(`${nftsBaseUrl}/profile/${account.toLowerCase()}`)}>
+      <UserMenuItem
+        as="button"
+        //  onClick={() => history.push(`${nftsBaseUrl}/profile/${account.toLowerCase()}`)}
+      >
         {t('Your NFTs')}
+        <Soon>Soon</Soon>
       </UserMenuItem>
       <ProfileUserMenuItem isLoading={isLoading} hasProfile={hasProfile} />
       <UserMenuDivider />
