@@ -38,7 +38,7 @@ const AvatarWrapper = styled.div<{ bg: string }>`
   }
 `
 // TODO: replace with no profile avatar icon
-const AvatarInactive = styled(NoProfileAvatarIcon)`
+const AvatarInactive = styled.img`
   width: 100%;
   height: 100%;
 `
@@ -46,8 +46,8 @@ const AvatarInactive = styled(NoProfileAvatarIcon)`
 const ProfileAvatarWithTeam: React.FC<ProfileAvatarProps> = ({ profile }) => {
   return (
     <AvatarWrapper bg={profile.nft?.image.thumbnail}>
-      {!profile.isActive && <AvatarInactive />}
-      <TeamAvatar src={`/images/teams/${profile.team.images.alt}`} alt={profile.team.name} />
+      {!profile.isActive && <AvatarInactive src="/images/teams/ags.png" alt="avatar" />}
+      {/* <TeamAvatar src={`/images/teams/${profile.team.images.alt}`} alt={profile.team.name} /> */}
     </AvatarWrapper>
   )
 }

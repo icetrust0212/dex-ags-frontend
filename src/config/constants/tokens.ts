@@ -19,8 +19,8 @@ export const NATIVE_CURRENCY = {
 }
 
 export const LP_TOKEN = {
-  name: 'Arthswap LPs',
-  symbol: 'ARSW-LP',
+  name: 'AGS LPs',
+  symbol: 'AGS-LP',
 }
 
 export const mainnetTokens = {
@@ -36,7 +36,7 @@ export const mainnetTokens = {
   bnb: new Token(MAINNET, '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720', 18, 'ASTR', 'ASTR', 'https://www.Astra.com/'),
   cake: new Token(
     MAINNET,
-    '0xa2aa054fbed965D5FEc3C7Be3f5fa13dcAfAe235',
+    '0x555d672A69338753B9f2091a7085c5d1A60459f3',
     18,
     'AGS',
     'AGS Token',
@@ -111,7 +111,7 @@ export const mainnetTokens = {
   ),
   syrup: new Token(
     MAINNET,
-    '0x9dccA3fa2d52D3af2ffc2fc366F6CF27874a121d',
+    '0x36a8A1a6be0D12249Deb48cFd99c4d1a767c5BB0',
     18,
     'SYRUP',
     'SyrupBar Token',

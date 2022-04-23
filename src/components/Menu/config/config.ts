@@ -72,7 +72,7 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
   // },
   {
     label: '',
-    href: '/info',
+    href: '/launchpad',
     icon: 'More',
     hideSubNav: true,
     items: [

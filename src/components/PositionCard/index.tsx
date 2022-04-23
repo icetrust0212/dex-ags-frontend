@@ -26,7 +26,7 @@ import { AutoColumn } from '../Layout/Column'
 import CurrencyLogo from '../Logo/CurrencyLogo'
 import { DoubleCurrencyLogo } from '../Logo'
 import { RowBetween, RowFixed } from '../Layout/Row'
-import { BIG_INT_ZERO } from '../../config/constants'
+import { BIG_INT_ZERO, FEES } from '../../config/constants'
 import Dots from '../Loader/Dots'
 
 const FixedHeightRow = styled(RowBetween)`
@@ -134,7 +134,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
               🥞
             </span>{' '}
             {t(
-              "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.",
+              `By adding liquidity you'll earn ${FEES.liquidity}% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.`,
             )}
           </Text>
         </LightCard>

@@ -4,6 +4,7 @@ import { useTranslation } from 'contexts/Localization'
 import { useGetStats } from 'hooks/api'
 import useTheme from 'hooks/useTheme'
 import { formatLocalisedCompactNumber } from 'utils/formatBalance'
+import styled from 'styled-components'
 import IconCard, { IconCardData } from '../IconCard'
 import StatCardContent from './StatCardContent'
 import GradientLogo from '../GradientLogoSvg'
@@ -17,12 +18,15 @@ const Stats = () => {
   const data = useGetStats()
   const { theme } = useTheme()
 
-  const tvlString = data ? formatLocalisedCompactNumber(data.tvl) : '-'
-  const trades = formatLocalisedCompactNumber(txCount)
-  const users = formatLocalisedCompactNumber(addressCount)
+  // const tvlString = data ? formatLocalisedCompactNumber(data.tvl) : '-'
+  // const trades = formatLocalisedCompactNumber(txCount)
+  // const users = formatLocalisedCompactNumber(addressCount)
+  const trades = 1000
+  const users = 1000
+  const tvlString = 1000
 
   const tvlText = t('And those users are now entrusting the platform with over $%tvl% in funds.', { tvl: tvlString })
-  const [entrusting, inFunds] = tvlText.split(tvlString)
+  // const [entrusting, inFunds] = tvlText.split(tvlString)
 
   const UsersCardData: IconCardData = {
     icon: <CommunityIcon color="secondary" width="36px" />,
@@ -38,7 +42,8 @@ const Stats = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <GradientLogo height="48px" width="48px" mb="24px" />
+      {/* <GradientLogo height="48px" width="48px" mb="24px" /> */}
+      <Logo src="/images/teams/ags.png" />
       <Heading textAlign="center" scale="xl">
         {t('Used by millions.')}
       </Heading>
@@ -46,13 +51,15 @@ const Stats = () => {
         {t('Trusted with billions.')}
       </Heading>
       <Text textAlign="center" color="textSubtle">
-        {t('PancakeSwap has the most users of any decentralized platform, ever.')}
+        {t('AGS Finance is the first DEX/AMM to introduce protocol owned liquidity on Astar Network. ')}
       </Text>
       <Flex flexWrap="wrap">
         <Text display="inline" textAlign="center" color="textSubtle" mb="20px">
-          {entrusting}
+          {/* {entrusting}
           <>{data ? <>{tvlString}</> : <Skeleton display="inline-block" height={16} width={70} mt="2px" />}</>
-          {inFunds}
+          {inFunds} */}
+          Other offerings include, lowest trading fees of 0.17%, ensuring that users gets the best rate possible when
+          trading on AGS Finance
         </Text>
       </Flex>
 
@@ -87,4 +94,8 @@ const Stats = () => {
   )
 }
 
+const Logo = styled.img`
+  width: 64px;
+  height: 64px;
+`
 export default Stats

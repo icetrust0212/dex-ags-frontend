@@ -1,11 +1,18 @@
 import { ChainId, JSBI, Percent, Token } from '@pancakeswap/sdk'
 import { mainnetTokens, testnetTokens } from './tokens'
 
-export const ROUTER_ADDRESS = '0xE915D2393a08a00c5A463053edD31bAe2199b9e7'
+export const ROUTER_ADDRESS = '0xd14CF52c8fea176002eeB2D9C0866c794516776c'
 
 // a list of tokens by chain
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
+}
+
+export const FEES = {
+  total: 0.17,
+  liquidity: 0.08,
+  treasury: 0.03,
+  protocol: 0.06,
 }
 
 // used to construct intermediary pairs for trading

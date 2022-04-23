@@ -30,7 +30,7 @@ const Sticker = styled(Flex)`
   box-shadow: ${({ theme }) => theme.card.boxShadow};
 `
 
-const StyledNoProfileAvatarIcon = styled(NoProfileAvatarIcon)`
+const StyledNoProfileAvatarIcon = styled.img`
   height: 100%;
   width: 100%;
 `
@@ -69,7 +69,13 @@ const UserDetail = () => {
     <>
       <Desktop>
         <Box mr="24px">
-          <Sticker>{profile ? <ProfileAvatarWithTeam profile={profile} /> : <StyledNoProfileAvatarIcon />}</Sticker>
+          <Sticker>
+            {profile ? (
+              <ProfileAvatarWithTeam profile={profile} />
+            ) : (
+              <StyledNoProfileAvatarIcon src="/images/teams/ags.png" />
+            )}
+          </Sticker>
         </Box>
         <Flex flexDirection="column">
           {getDesktopHeading()}

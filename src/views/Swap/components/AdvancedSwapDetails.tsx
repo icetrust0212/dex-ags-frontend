@@ -8,6 +8,7 @@ import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown } from 'util
 import { AutoColumn } from 'components/Layout/Column'
 import QuestionHelper from 'components/QuestionHelper'
 import { RowBetween, RowFixed } from 'components/Layout/Row'
+import { FEES } from 'config/constants'
 import FormattedPriceImpact from './FormattedPriceImpact'
 import SwapRoute from './SwapRoute'
 
@@ -61,10 +62,10 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
           <QuestionHelper
             text={
               <>
-                <Text mb="12px">{t('For each trade a %amount% fee is paid', { amount: '0.25%' })}</Text>
-                <Text>- {t('%amount% to LP token holders', { amount: '0.17%' })}</Text>
-                <Text>- {t('%amount% to the Treasury', { amount: '0.03%' })}</Text>
-                <Text>- {t('%amount% towards AGS buyback and burn', { amount: '0.05%' })}</Text>
+                <Text mb="12px">{t('For each trade a %amount% fee is paid', { amount: `${FEES.total}%` })}</Text>
+                <Text>- {t('%amount% to LP token holders', { amount: `${FEES.liquidity}%` })}</Text>
+                <Text>- {t('%amount% to the Treasury', { amount: `${FEES.treasury}%` })}</Text>
+                <Text>- {t('%amount% to the protocol owned liquidity', { amount: `${FEES.protocol}%` })}</Text>
               </>
             }
             ml="4px"

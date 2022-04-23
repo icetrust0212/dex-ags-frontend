@@ -52,6 +52,9 @@ const InnerWrapper = styled.div`
 const BunnyWrapper = styled.div`
   width: 100%;
   animation: ${flyingAnim} 3.5s ease-in-out infinite;
+  img {
+    border-radius: 50%;
+  }
 `
 
 const StarsWrapper = styled.div`
@@ -74,9 +77,6 @@ const StarsWrapper = styled.div`
     animation-delay: 0.33s;
   }
 `
-
-const imagePath = '/images/home/lunar-bunny/'
-const imageSrc = 'bunny'
 
 const starsImage: CompositeImageProps = {
   path: '/images/home/lunar-bunny/',
@@ -107,10 +107,10 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('The moon is made of pancakes.')}
+            {t('DeFi/NFT Universe.')}
           </Heading>
           <Heading scale="md" mb="24px">
-            {t('Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.')}
+            {t('Trade and farm with NFT boost on the lowest fee decentralized platform in the Astra.')}
           </Heading>
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
@@ -127,7 +127,7 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-            <img src={`${imagePath}${imageSrc}.png`} srcSet={getSrcSet(imagePath, imageSrc)} alt={t('Lunar bunny')} />
+            <img src="/images/home-hero.jpg" srcSet="/images/home-hero.jpg" alt={t('AGS')} />
           </BunnyWrapper>
           <StarsWrapper>
             <CompositeImage {...starsImage} />

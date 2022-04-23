@@ -9,7 +9,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'AGS',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
-      592: '0xa2aa054fbed965D5FEc3C7Be3f5fa13dcAfAe235',
+      592: '0x555d672A69338753B9f2091a7085c5d1A60459f3',
     },
     token: serializedTokens.syrup,
     quoteToken: serializedTokens.wbnb,
@@ -19,7 +19,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'AGS/WASTR',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
-      592: '0x6b37cC0d22EA5611884dE48Bb13b01d420631254',
+      592: '0x2f6C10062647EB0CF044601fDbC031dcE0710b73',
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.wbnb,
@@ -29,7 +29,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'USDT/WASTR',
     lpAddresses: {
       97: '',
-      592: '0x806f746a7c4293092ac7aa604347BE123322dF1e',
+      592: '0x624eD15D9BEd02f905f41e6E4190f0Af9caf2151',
     },
     token: serializedTokens.usdt,
     quoteToken: serializedTokens.wbnb,

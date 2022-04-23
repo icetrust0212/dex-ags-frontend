@@ -1,8 +1,9 @@
+import { mainnetTokens } from 'config/constants/tokens'
 import { SalesSectionProps } from '.'
 
 export const swapSectionData: SalesSectionProps = {
-  headingText: 'Trade anything. No registration, no hassle.',
-  bodyText: 'Trade any token on Binance Smart Chain in seconds, just by connecting your wallet.',
+  headingText: 'Trade any crypto.',
+  bodyText: 'Trade any token on Astra Chain in seconds, just by connecting your wallet.',
   reverse: false,
   primaryButton: {
     to: '/swap',
@@ -10,23 +11,23 @@ export const swapSectionData: SalesSectionProps = {
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/',
+    to: 'https://agsfinance.gitbook.io/docs//',
     text: 'Learn',
     external: true,
   },
   images: {
     path: '/images/home/trade/',
     attributes: [
-      { src: 'BNB', alt: 'BNB token' },
+      { src: 'ASTR', alt: 'ASTR token' },
       { src: 'BTC', alt: 'BTC token' },
-      { src: 'CAKE', alt: 'CAKE token' },
+      { src: 'AGS', alt: 'AGS token' },
     ],
   },
 }
 
 export const earnSectionData: SalesSectionProps = {
-  headingText: 'Earn passive income with crypto.',
-  bodyText: 'PancakeSwap makes it easy to make your crypto work for you.',
+  headingText: `Earn passive income with $${mainnetTokens.cake.symbol}.`,
+  bodyText: 'AGS Finance makes it easy to make your crypto work for you.',
   reverse: true,
   primaryButton: {
     to: '/farms',
@@ -34,7 +35,7 @@ export const earnSectionData: SalesSectionProps = {
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/products/yield-farming',
+    to: 'https://agsfinance.gitbook.io/docs/products/yield-farming',
     text: 'Learn',
     external: true,
   },
@@ -43,23 +44,22 @@ export const earnSectionData: SalesSectionProps = {
     attributes: [
       { src: 'pie', alt: 'Pie chart' },
       { src: 'stonks', alt: 'Stocks chart' },
-      { src: 'folder', alt: 'Folder with cake token' },
+      { src: 'AGS', alt: 'Folder with ags token' },
     ],
   },
 }
 
 export const cakeSectionData: SalesSectionProps = {
-  headingText: 'CAKE makes our world go round.',
-  bodyText:
-    'CAKE token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
+  headingText: `$${mainnetTokens.cake.symbol} makes our world go round.`,
+  bodyText: `${mainnetTokens.cake.symbol} token is at the heart of the AGS Finance ecosystem. Buy it, farm it, spend it, stake it... heck, you can even vote with it!`,
   reverse: false,
   primaryButton: {
-    to: '/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
-    text: 'Buy CAKE',
+    to: `/swap?outputCurrency=${mainnetTokens.cake.address}`,
+    text: `Buy ${mainnetTokens.cake.symbol}`,
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/tokenomics/cake',
+    to: 'https://agsfinance.gitbook.io/docs/tokenomics/usdags',
     text: 'Learn',
     external: true,
   },
@@ -67,10 +67,10 @@ export const cakeSectionData: SalesSectionProps = {
   images: {
     path: '/images/home/cake/',
     attributes: [
-      { src: 'bottom-right', alt: 'Small 3d pancake' },
-      { src: 'top-right', alt: 'Small 3d pancake' },
-      { src: 'coin', alt: 'CAKE token' },
-      { src: 'top-left', alt: 'Small 3d pancake' },
+      { src: 'bottom-right', alt: 'Small 3d ags' },
+      { src: 'top-right', alt: 'Small 3d ags' },
+      { src: 'AGS', alt: 'AGS token' },
+      { src: 'top-left', alt: 'Small 3d ags' },
     ],
   },
 }

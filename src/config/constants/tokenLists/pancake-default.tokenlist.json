@@ -19,6 +19,14 @@
       "logoURI": "https://pancakeswap.finance/images/tokens/0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720.png"
     },
     {
+      "name": "AGS Token",
+      "symbol": "AGS",
+      "address": "0x555d672A69338753B9f2091a7085c5d1A60459f3",
+      "chainId": 592,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png"
+    },
+    {
       "name": "Ethereum Token",
       "symbol": "WETH",
       "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
@@ -41,14 +49,6 @@
       "chainId": 592,
       "decimals": 6,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x55d398326f99059ff775485246999027b3197955.png"
-    },
-    {
-      "name": "AGS Token",
-      "symbol": "AGS",
-      "address": "0xa2aa054fbed965D5FEc3C7Be3f5fa13dcAfAe235",
-      "chainId": 592,
-      "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png"
     },
     {
       "name": "Matic Token",

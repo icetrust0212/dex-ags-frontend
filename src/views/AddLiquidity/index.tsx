@@ -21,7 +21,7 @@ import { MinimalPositionCard } from '../../components/PositionCard'
 import Row, { RowBetween } from '../../components/Layout/Row'
 import ConnectWalletButton from '../../components/ConnectWalletButton'
 
-import { ROUTER_ADDRESS } from '../../config/constants'
+import { FEES, ROUTER_ADDRESS } from '../../config/constants'
 import { PairState } from '../../hooks/usePairs'
 import { useCurrency } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
@@ -323,7 +323,7 @@ export default function AddLiquidity({
           title={t('Add Liquidity')}
           subtitle={t('Add liquidity to receive LP tokens')}
           helper={t(
-            'Liquidity providers earn a 0.17% trading fee on all trades made for that token pair, proportional to their share of the liquidity pool.',
+            `Liquidity providers earn a ${FEES.liquidity}% trading fee on all trades made for that token pair, proportional to their share of the liquidity pool.`,
           )}
           backTo="/pool"
         />
