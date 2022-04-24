@@ -54,6 +54,7 @@ const BunnyWrapper = styled.div`
   animation: ${flyingAnim} 3.5s ease-in-out infinite;
   img {
     border-radius: 50%;
+    width: 75%;
   }
 `
 
@@ -107,10 +108,10 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('DeFi/NFT Universe.')}
+            {t('NFT Intergated DEX/AMM')}
           </Heading>
           <Heading scale="md" mb="24px">
-            {t('Trade and farm with NFT boost on the lowest fee decentralized platform in the Astra.')}
+            {t('Trade, farm and stake NFTs on the first NFT integrated decentralized exchange on Astar Network.')}
           </Heading>
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
@@ -120,8 +121,8 @@ const Hero = () => {
           </Flex>
         </Flex>
         <Flex
-          height={['192px', null, null, '100%']}
-          width={['192px', null, null, '100%']}
+          height={['164px', null, null, '100%']}
+          width={['164px', null, null, '100%']}
           flex={[null, null, null, '1']}
           mb={['24px', null, null, '0']}
           position="relative"

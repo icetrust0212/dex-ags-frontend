@@ -16,6 +16,7 @@ import useTheme from 'hooks/useTheme'
 import useToast from 'hooks/useToast'
 import { Token } from '@pancakeswap/sdk'
 import { formatNumber } from 'utils/formatBalance'
+import { mainnetTokens } from 'config/constants/tokens'
 import useHarvestPool from '../../../hooks/useHarvestPool'
 import useStakePool from '../../../hooks/useStakePool'
 
@@ -49,8 +50,8 @@ const CollectModal: React.FC<CollectModalProps> = ({
   const [shouldCompound, setShouldCompound] = useState(isCompoundPool)
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <>
-      <Text mb="12px">{t('Compound: collect and restake CAKE into pool.')}</Text>
-      <Text>{t('Harvest: collect CAKE and send to wallet')}</Text>
+      <Text mb="12px">{t(`Compound: collect and restake ${mainnetTokens.cake.symbol} into pool.`)}</Text>
+      <Text>{t(`Harvest: collect ${mainnetTokens.cake.symbol} and send to wallet`)}</Text>
     </>,
     { placement: 'bottom-end', tooltipOffset: [20, 10] },
   )

@@ -27,6 +27,16 @@ const StyledSunburst = styled(SunburstSvg)`
   }
 `
 
+const StyledImage = styled.img`
+  height: 350%;
+  width: 350%;
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    height: 400%;
+    width: 400%;
+  }
+`
+
 const Wrapper = styled(Flex)`
   z-index: 1;
   position: relative;
@@ -89,17 +99,18 @@ const Footer = () => {
     <>
       <BgWrapper>
         <Flex alignItems="center" justifyContent="center" width="100%" height="100%">
-          <StyledSunburst />
+          {/* <StyledSunburst /> */}
+          <StyledImage src="/images/home/footer-bg.png" />
         </Flex>
       </BgWrapper>
-      <FloatingPancakesWrapper>
+      {/* <FloatingPancakesWrapper>
         <TopLeftImgWrapper>
           <CompositeImage {...topLeftImage} maxHeight="256px" />
         </TopLeftImgWrapper>
         <BottomRightImgWrapper>
           <CompositeImage {...bottomRightImage} maxHeight="256px" />
         </BottomRightImgWrapper>
-      </FloatingPancakesWrapper>
+      </FloatingPancakesWrapper> */}
       <Wrapper>
         <Heading mb="24px" scale="xl" color="white">
           {t('Start in seconds.')}

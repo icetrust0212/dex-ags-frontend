@@ -1,7 +1,7 @@
 {
   "short_name": "AGS Finance",
   "name": "AGS Finance",
-  "description": "Farm AGS with Astra LP Tokens",
+  "description": "Farm AGS with AGS LP Tokens",
   "homepage_url": "https://ags.finance",
   "start_url": ".",
   "display": "standalone",

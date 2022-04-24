@@ -30,24 +30,24 @@ export const mainnetTokens = {
     18,
     'WASTR',
     'Wrapped ASTR',
-    'https://www.Astra.com/',
+    'https://www.astar.com/',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  bnb: new Token(MAINNET, '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720', 18, 'ASTR', 'ASTR', 'https://www.Astra.com/'),
+  bnb: new Token(MAINNET, '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720', 18, 'ASTR', 'ASTR', 'https://www.astar.com/'),
   cake: new Token(
     MAINNET,
     '0x555d672A69338753B9f2091a7085c5d1A60459f3',
     18,
     'AGS',
     'AGS Token',
-    'https://pancakeswap.finance/',
+    'https://ags.finance/',
   ),
   busd: new Token(
     MAINNET,
     '0x4Bf769b05E832FCdc9053fFFBC78Ca889aCb5E1E',
     18,
     'BUSD',
-    'Astra USD',
+    'Astar USD',
     'https://www.paxos.com/busd/',
   ),
   dai: new Token(
@@ -64,7 +64,7 @@ export const mainnetTokens = {
     '0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA',
     18,
     'WBTC',
-    'Astra BTC',
+    'Astar BTC',
     'https://bitcoin.org/',
   ),
 
@@ -73,7 +73,7 @@ export const mainnetTokens = {
     '0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c',
     18,
     'WETH',
-    'Astra-Peg Ethereum Token',
+    'Astar-Peg Ethereum Token',
     'https://ethereum.org/en/',
   ),
   usdc: new Token(
@@ -81,7 +81,7 @@ export const mainnetTokens = {
     '0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98',
     6,
     'USDC',
-    'Astra-Peg USD Coin',
+    'Astar-Peg USD Coin',
     'https://www.centre.io/usdc',
   ),
 
@@ -115,7 +115,7 @@ export const mainnetTokens = {
     18,
     'SYRUP',
     'SyrupBar Token',
-    'https://pancakeswap.finance/',
+    'https://ags.finance/',
   ),
 }
 
@@ -126,7 +126,7 @@ export const testnetTokens = {
     18,
     'WBNB',
     'Wrapped BNB',
-    'https://www.Astra.com/',
+    'https://www.astar.com/',
   ),
   cake: new Token(
     TESTNET,
@@ -134,14 +134,14 @@ export const testnetTokens = {
     18,
     'CAKE',
     'PancakeSwap Token',
-    'https://pancakeswap.finance/',
+    'https://ags.finance/',
   ),
   busd: new Token(
     TESTNET,
     '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
     18,
     'BUSD',
-    'Astra USD',
+    'Astar USD',
     'https://www.paxos.com/busd/',
   ),
   syrup: new Token(
@@ -150,7 +150,7 @@ export const testnetTokens = {
     18,
     'SYRUP',
     'SyrupBar Token',
-    'https://pancakeswap.finance/',
+    'https://ags.finance/',
   ),
   bake: new Token(
     TESTNET,

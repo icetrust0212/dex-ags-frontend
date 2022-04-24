@@ -35,6 +35,12 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
       },
     ],
   },
+  {
+    label: t('Launchpad'),
+    href: '/launchpad',
+    icon: 'IFO',
+    items: [],
+  },
 
   // {
   //   label: t('Win'),
@@ -72,7 +78,7 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
   // },
   {
     label: '',
-    href: '/launchpad',
+    href: '',
     icon: 'More',
     hideSubNav: true,
     items: [
@@ -81,8 +87,19 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
       //   href: '/info',
       // },
       {
-        label: t('Launchpad'),
-        href: '/launchpad',
+        label: t('Faucet'),
+        href: 'https://portal.astar.network/#/balance/wallet',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
+        label: t('Bridge'),
+        href: 'https://cbridge.celer.network/#/transfer',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
+        label: t('Dexscreener'),
+        href: 'https://dexscreener.com/',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       // {
       //   label: t('Voting'),
@@ -106,6 +123,11 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
       {
         label: t('Docs'),
         href: 'https://agsfinance.gitbook.io',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
+        label: t('Github'),
+        href: 'https://github.com/AlterGrimaceSociety/AGS-Finance-Contracts',
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
     ],

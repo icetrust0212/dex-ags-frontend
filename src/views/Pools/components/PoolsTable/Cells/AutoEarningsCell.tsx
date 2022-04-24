@@ -6,6 +6,7 @@ import Balance from 'components/Balance'
 import { useCakeVault } from 'state/pools/hooks'
 import { useTranslation } from 'contexts/Localization'
 import { getCakeVaultEarnings } from 'views/Pools/helpers'
+import { mainnetTokens } from 'config/constants/tokens'
 import BaseCell, { CellContent } from './BaseCell'
 
 interface AutoEarningsCellProps {
@@ -42,7 +43,7 @@ const AutoEarningsCell: React.FC<AutoEarningsCellProps> = ({ pool, account, user
     earningTokenPrice,
   )
 
-  const labelText = t('Recent CAKE profit')
+  const labelText = t(`Recent ${mainnetTokens.cake.symbol} profit`)
   const earningTokenBalance = autoCakeToDisplay
   const hasEarnings = hasAutoEarnings
   const earningTokenDollarBalance = autoUsdToDisplay

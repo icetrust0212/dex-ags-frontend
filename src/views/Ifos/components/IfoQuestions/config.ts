@@ -4,7 +4,7 @@ const config = [
   {
     title: 'What’s the difference between a Basic Sale and Unlimited Sale?',
     description: [
-      `In the Basic Sale, every user can commit a maximum of about 100 USD worth of $${NATIVE_CURRENCY.wrapSymbol} Tokens. We calculate the maximum $${NATIVE_CURRENCY.wrapSymbol} amount about 30 minutes before each ICO. The Basic Sale has no participation fee.`,
+      `In the Basic Sale, every user can commit a maximum of about 100 USD worth of $${NATIVE_CURRENCY.wrapSymbol} Tokens. We calculate the maximum $${NATIVE_CURRENCY.wrapSymbol} amount about 30 minutes before each IDO. The Basic Sale has no participation fee.`,
       `In the Unlimited Sale, there’s no limit to the amount of $${NATIVE_CURRENCY.wrapSymbol} Tokens you can commit. However, there’s a fee for participation: see below.`,
     ],
   },
@@ -33,7 +33,7 @@ const config = [
     ],
   },
   {
-    title: 'How can I get an achievement for participating in the ICO?',
+    title: 'How can I get an achievement for participating in the IDO?',
     description: [
       `You need to contribute a minimum of about 10 USD worth of $${NATIVE_CURRENCY.wrapSymbol} Tokens to either sale.`,
       'You can contribute to one or both, it doesn’t matter: only your overall contribution is counted for the achievement.',

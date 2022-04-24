@@ -7,6 +7,7 @@ import Balance from 'components/Balance'
 import { useCakeVault } from 'state/pools/hooks'
 import { DeserializedPool } from 'state/types'
 
+import { mainnetTokens } from 'config/constants/tokens'
 import { ActionContainer, ActionTitles, ActionContent } from './styles'
 import UnstakingFeeCountdownRow from '../../CakeVaultCard/UnstakingFeeCountdownRow'
 
@@ -42,7 +43,7 @@ const AutoHarvestAction: React.FunctionComponent<AutoHarvestActionProps> = ({ us
 
   const actionTitle = (
     <Text fontSize="12px" bold color="secondary" as="span" textTransform="uppercase">
-      {t('Recent CAKE profit')}
+      {t(`Recent ${mainnetTokens.cake.symbol} profit`)}
     </Text>
   )
 

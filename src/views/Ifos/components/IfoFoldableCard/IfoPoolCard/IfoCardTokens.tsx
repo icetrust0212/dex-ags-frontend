@@ -109,9 +109,9 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
     }
     // if (account && !hasProfile) {
     //   if (publicIfoData.status === 'finished') {
-    //     return <Text textAlign="center">{t(`Get $${NATIVE_CURRENCY.wrapSymbol} tokens to take part in next ICO‘s!`)}</Text>
+    //     return <Text textAlign="center">{t(`Get $${NATIVE_CURRENCY.wrapSymbol} tokens to take part in next IDO‘s!`)}</Text>
     //   }
-    //   return <Text textAlign="center">{t(`You need $${NATIVE_CURRENCY.wrapSymbol} token to take part in this ICO.`)}</Text>
+    //   return <Text textAlign="center">{t(`You need $${NATIVE_CURRENCY.wrapSymbol} token to take part in this IDO.`)}</Text>
     // }
     if (publicIfoData.status === 'coming_soon') {
       return (

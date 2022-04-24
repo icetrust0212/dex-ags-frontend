@@ -18,7 +18,7 @@ cypress/fixtures/example.json
 
 # production
 /build
-
+/public/locales
 # misc
 .DS_Store
 .eslintcache

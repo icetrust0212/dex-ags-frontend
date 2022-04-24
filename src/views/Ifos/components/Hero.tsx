@@ -13,7 +13,7 @@ const getGradient = (isDark: boolean) => {
 }
 
 const StyledHero = styled.div`
-  background: ${({ theme }) => getGradient(theme.isDark)};
+  // background: ${({ theme }) => getGradient(theme.isDark)};
   padding-bottom: 40px;
   padding-top: 40px;
 `
@@ -33,14 +33,14 @@ const Hero = () => {
       <StyledHero>
         <Container>
           <Heading as="h1" scale="xl" mb="24px">
-            {t('LaunchPad: Initial Coin Offerings')}
+            {t('LaunchPad: Initial DEX Offerings')}
           </Heading>
           <Text bold fontSize="20px">
             {t('Buy new tokens with a brand new token sale model.')}
           </Text>
         </Container>
       </StyledHero>
-      <CurtainBottom />
+      {/* <CurtainBottom /> */}
     </Box>
   )
 }

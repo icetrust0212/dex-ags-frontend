@@ -71,7 +71,9 @@ const RoiCalculatorFooter: React.FC<RoiCalculatorFooterProps> = ({
   )
 
   const gridRowCount = isFarm ? 4 : 2
-  const apy = (getApy(apr, autoCompoundFrequency > 0 ? autoCompoundFrequency : 1, 365, performanceFee) * 100).toFixed(2)
+  const apy = (getApy(apr, autoCompoundFrequency > 0 ? autoCompoundFrequency : 1, 365, performanceFee) * 100)?.toFixed(
+    2,
+  )
 
   return (
     <Footer p="16px" flexDirection="column">
@@ -95,7 +97,7 @@ const RoiCalculatorFooter: React.FC<RoiCalculatorFooterProps> = ({
               {isFarm ? t('Base APR (AGS yield only)') : t('APR')}
             </Text>
             <Text small textAlign="right">
-              {apr.toFixed(2)}%
+              {apr?.toFixed(2)}%
             </Text>
             <Text color="textSubtle" small>
               {t('APY (%compoundTimes%x daily compound)', {

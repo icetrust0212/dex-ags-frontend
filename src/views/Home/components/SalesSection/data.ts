@@ -2,8 +2,8 @@ import { mainnetTokens } from 'config/constants/tokens'
 import { SalesSectionProps } from '.'
 
 export const swapSectionData: SalesSectionProps = {
-  headingText: 'Trade any crypto.',
-  bodyText: 'Trade any token on Astra Chain in seconds, just by connecting your wallet.',
+  headingText: 'NFT Intergated DEX/AMM.',
+  bodyText: 'Trade any token on Astar Network in seconds, just by connecting your wallet.',
   reverse: false,
   primaryButton: {
     to: '/swap',
@@ -19,15 +19,15 @@ export const swapSectionData: SalesSectionProps = {
     path: '/images/home/trade/',
     attributes: [
       { src: 'ASTR', alt: 'ASTR token' },
-      { src: 'BTC', alt: 'BTC token' },
+      { src: 'DOT', alt: 'DOT token' },
       { src: 'AGS', alt: 'AGS token' },
     ],
   },
 }
 
 export const earnSectionData: SalesSectionProps = {
-  headingText: `Earn passive income with $${mainnetTokens.cake.symbol}.`,
-  bodyText: 'AGS Finance makes it easy to make your crypto work for you.',
+  headingText: `Earn passive income by staking your crypto asset.`,
+  bodyText: 'AGS Finance makes it easy to make your crypto work for you. Simply stake and enjoy your rewards.',
   reverse: true,
   primaryButton: {
     to: '/farms',
@@ -50,8 +50,8 @@ export const earnSectionData: SalesSectionProps = {
 }
 
 export const cakeSectionData: SalesSectionProps = {
-  headingText: `$${mainnetTokens.cake.symbol} makes our world go round.`,
-  bodyText: `${mainnetTokens.cake.symbol} token is at the heart of the AGS Finance ecosystem. Buy it, farm it, spend it, stake it... heck, you can even vote with it!`,
+  headingText: `#1 DeFi Ecosystem`,
+  bodyText: `${mainnetTokens.cake.symbol} is the main token of the AGS Finance ecosystem. Trade, Farm, Stake, IDO/IFO … $AGS brings along many utilities!`,
   reverse: false,
   primaryButton: {
     to: `/swap?outputCurrency=${mainnetTokens.cake.address}`,

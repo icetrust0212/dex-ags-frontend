@@ -22,7 +22,7 @@ const GetLpModal: React.FC<Partial<Props>> = ({ currency, onDismiss }) => {
           margin="auto"
           mb="24px"
         />
-        <Text mb="16px">{t(`You’ll need $${currency.symbol} tokens to participate in the ICO!`)}</Text>
+        <Text mb="16px">{t(`You’ll need $${currency.symbol} tokens to participate in the IDO!`)}</Text>
         <Text mb="24px">
           {t(`Get $${currency.symbol} tokens, or make sure your tokens aren’t staked somewhere else.`)}
         </Text>

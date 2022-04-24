@@ -20,7 +20,7 @@ interface Props {
   walletIfoData: WalletIfoData
 }
 
-const Wrapper = styled(Container)`
+const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.gradients.bubblegum};
   margin-left: -16px;
   margin-right: -16px;
@@ -85,7 +85,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
               {t('Activate your Profile')}
             </Heading>
             <Text color="textSubtle" small mb="16px">
-              {t('You’ll need an active PancakeSwap Profile to take part in an ICO!')}
+              {t('You’ll need an active PancakeSwap Profile to take part in an IDO!')}
             </Text>
             {renderAccountStatus()}
           </CardBody>
@@ -97,8 +97,8 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
               {t(`Get $${ifo.currency.symbol} Tokens`)}
             </Heading>
             <Text color="textSubtle" small>
-              {t(`Get $${ifo.currency.symbol} tokens to participated in an ICO.`)} <br />
-              {t('You’ll spend them to buy ICO sale tokens.')}
+              {t(`Get $${ifo.currency.symbol} tokens to participated in an IDO.`)} <br />
+              {t('You’ll spend them to buy IDO sale tokens.')}
             </Text>
             <Button
               as={Link}
@@ -119,7 +119,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
             </Heading>
             <Text color="textSubtle" small>
               {t(
-                `When the ICO sales are live, you can “commit” your $${ifo.currency.symbol} tokens to buy the tokens being sold.`,
+                `When the IDO sales are live, you can “commit” your $${ifo.currency.symbol} tokens to buy the tokens being sold.`,
               )}{' '}
               <br />
               {t('We recommend committing to the Basic Sale first, but you can do both if you like.')}
@@ -134,7 +134,7 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
             </Heading>
             <Text color="textSubtle" small>
               {t(
-                `After the ICO sales finish, you can claim any ICO tokens that you bought, and any unspent $${ifo.currency.symbol} tokens will be returned to your wallet.`,
+                `After the IDO sales finish, you can claim any IDO tokens that you bought, and any unspent $${ifo.currency.symbol} tokens will be returned to your wallet.`,
               )}
             </Text>
           </CardBody>
@@ -146,22 +146,24 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
 
   return (
     <Wrapper>
-      <Heading as="h2" scale="xl" color="secondary" mb="24px" textAlign="center">
-        {t('How to Take Part')}
-      </Heading>
-      <Stepper>
-        {stepsValidationStatus.map((_, index) => (
-          <Step
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            index={index}
-            statusFirstPart={getStatusProp(index)}
-            statusSecondPart={getStatusProp(index + 1)}
-          >
-            <Card>{renderCardBody(index + 1)}</Card>
-          </Step>
-        ))}
-      </Stepper>
+      <Container>
+        <Heading as="h2" scale="xl" color="secondary" mb="24px" textAlign="center">
+          {t('How to Take Part')}
+        </Heading>
+        <Stepper>
+          {stepsValidationStatus.map((_, index) => (
+            <Step
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              index={index}
+              statusFirstPart={getStatusProp(index)}
+              statusSecondPart={getStatusProp(index + 1)}
+            >
+              <Card>{renderCardBody(index + 1)}</Card>
+            </Step>
+          ))}
+        </Stepper>
+      </Container>
     </Wrapper>
   )
 }
