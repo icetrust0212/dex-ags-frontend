@@ -38,7 +38,7 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
 
   const [state, setState] = useState({
     status: 'idle' as IfoStatus,
-    blocksRemaining: 0,
+    timeRemaining: 0,
     secondsUntilStart: 0,
     progress: 5,
     secondsUntilEnd: 0,
@@ -58,21 +58,28 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
       totalAmountPool: BIG_ZERO,
       sumTaxesOverflow: BIG_ZERO,
     },
-    startBlockNum: 0,
-    endBlockNum: 0,
+    startTime: 0,
+    endTime: 0,
     numberPoints: 0,
   })
-  const { currentBlock } = useBlock()
+  // const { currentBlock } = useBlock()
+  const [currentTime, setCurrentTime] = useState(new Date().getTime() / 1000)
+
+  useEffect(() => {
+    setInterval(() => {
+      setCurrentTime(new Date().getTime() / 1000)
+    }, 1000)
+  }, [])
 
   const fetchIfoData = useCallback(async () => {
     const ifoCalls = [
       {
         address,
-        name: 'startBlock',
+        name: 'startTime',
       },
       {
         address,
-        name: 'endBlock',
+        name: 'endTime',
       },
       {
         address,
@@ -95,42 +102,39 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
       },
     ]
 
-    const [startBlock, endBlock, poolBasic, poolUnlimited, taxRate, numberPoints] = await multicallv2(
-      ifoV2Abi,
-      ifoCalls,
-    )
+    const [startTime, endTime, poolBasic, poolUnlimited, taxRate, numberPoints] = await multicallv2(ifoV2Abi, ifoCalls)
 
     const poolBasicFormatted = formatPool(poolBasic)
     const poolUnlimitedFormatted = formatPool(poolUnlimited)
 
-    const startBlockNum = startBlock ? startBlock[0].toNumber() : 0
-    const endBlockNum = endBlock ? endBlock[0].toNumber() : 0
+    const startBlockTime = startTime ? startTime[0].toNumber() : 0
+    const endBlockTime = endTime ? endTime[0].toNumber() : 0
     const taxRateNum = taxRate ? taxRate[0].div(TAX_PRECISION).toNumber() : 0
 
-    const status = getStatus(currentBlock, startBlockNum, endBlockNum)
-    const totalBlocks = endBlockNum - startBlockNum
-    const blocksRemaining = endBlockNum - currentBlock
+    const status = getStatus(currentTime, startBlockTime, endBlockTime)
+    const totalTime = endBlockTime - startBlockTime
+    const timeRemaining = endBlockTime - currentTime
 
     // Calculate the total progress until finished or until start
     const progress =
-      currentBlock > startBlockNum
-        ? ((currentBlock - startBlockNum) / totalBlocks) * 100
-        : ((currentBlock - releaseBlockNumber) / (startBlockNum - releaseBlockNumber)) * 100
+      currentTime > startBlockTime
+        ? ((currentTime - startBlockTime) / totalTime) * 100
+        : ((currentTime - releaseBlockNumber) / (startBlockTime - releaseBlockNumber)) * 100
 
     setState((prev) => ({
       ...prev,
-      secondsUntilEnd: blocksRemaining * BSC_BLOCK_TIME,
-      secondsUntilStart: (startBlockNum - currentBlock) * BSC_BLOCK_TIME,
+      secondsUntilEnd: timeRemaining,
+      secondsUntilStart: startBlockTime - currentTime,
       poolBasic: { ...poolBasicFormatted, taxRate: 0 },
       poolUnlimited: { ...poolUnlimitedFormatted, taxRate: taxRateNum },
       status,
       progress,
-      blocksRemaining,
-      startBlockNum,
-      endBlockNum,
+      timeRemaining,
+      startBlockTime,
+      endBlockTime,
       numberPoints: numberPoints ? numberPoints[0].toNumber() : 0,
     }))
-  }, [address, currentBlock, releaseBlockNumber])
+  }, [address, currentTime, releaseBlockNumber])
 
   useEffect(() => {
     fetchIfoData()

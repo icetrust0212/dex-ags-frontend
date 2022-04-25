@@ -8,8 +8,8 @@ const WASTR_USDT = new Token(ChainId.MAINNET, farms[2].lpAddresses[ChainId.MAINN
 
 const ifos: Ifo[] = [
   {
-    id: 'AGS',
-    address: '0xbBB32f09c9a54789E6995186e20C3f193A27Fe87',
+    id: 'AGS-1',
+    address: '0x196b433A903e73070B8eaE05daf72c91780eC265',
     isActive: true,
     name: 'AGS Token Sale',
     poolBasic: {
@@ -21,16 +21,19 @@ const ifos: Ifo[] = [
     poolUnlimited: {
       saleAmount: '5,000,000 AGS',
       raiseAmount: '$500,000',
+      raiseAmountInCurrency: '2,500,000',
       cakeToBurn: '$0',
       distributionRatio: 1,
     },
     currency: mainnetTokens.wbnb,
     token: tokens.cake,
-    releaseBlockNumber: 926005,
+    releaseBlockNumber: 1651417200,
     campaignId: '0',
     articleUrl: 'https://altergrimace.medium.com/ags-finance-amm-dex-on-astar-network-8b1295e5b170',
     tokenOfferingPrice: 0.1,
     version: 2,
+    startTime: 1651244400,
+    endTime: 1651417200,
   },
 ]
 

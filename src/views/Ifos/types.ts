@@ -15,17 +15,20 @@ export interface PoolCharacteristics {
 // IFO data unrelated to the user returned by useGetPublicIfoData
 export interface PublicIfoData {
   status: IfoStatus
-  blocksRemaining: number
+  blocksRemaining?: number
   secondsUntilStart: number
   progress: number
   secondsUntilEnd: number
-  startBlockNum: number
-  endBlockNum: number
+  startBlockNum?: number
+  endBlockNum?: number
   currencyPriceInUSD: BigNumber
   numberPoints: number
   fetchIfoData: () => void
   [PoolIds.poolBasic]?: PoolCharacteristics
   [PoolIds.poolUnlimited]: PoolCharacteristics
+  startTime?: number
+  endTime?: number
+  timeRemaining?: number
 }
 
 // User specific pool characteristics

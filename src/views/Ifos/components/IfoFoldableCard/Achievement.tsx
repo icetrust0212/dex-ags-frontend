@@ -42,7 +42,7 @@ const Achievement: React.FC<Props> = ({ ifo, publicIfoData }) => {
   const minLpForAchievement = MIN_DOLLAR_FOR_ACHIEVEMENT.div(publicIfoData.currencyPriceInUSD).toNumber()
 
   return (
-    <Container>
+    <Container justifyContent="center">
       {/* <AchievementFlex isFinished={publicIfoData.status === 'finished'} alignItems="center" flexGrow={1}>
         <Image src={`/images/achievements/ifo-${tokenName}.svg`} width={56} height={56} mr="8px" />
         <Flex flexDirection="column">
@@ -67,7 +67,7 @@ const Achievement: React.FC<Props> = ({ ifo, publicIfoData }) => {
           )}
         </Flex>
       </AchievementFlex> */}
-      <Flex alignItems="flex-start" flexDirection="column">
+      <Flex alignItems="center" flexDirection="column" width="100%">
         <StyledLinkExternal href={ifo.articleUrl} mb="8px">
           {t('About %title%', { title: campaignTitle })}
         </StyledLinkExternal>

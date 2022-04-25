@@ -143,7 +143,9 @@ const Farms: React.FC<FarmProps> = ({ tokenMode }) => {
   // const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
   // const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
 
-  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
+  const activeFarms = farmsLP.filter(
+    (farm) => farm.pid !== 0 && farm.pid !== 1 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid),
+  )
   const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 

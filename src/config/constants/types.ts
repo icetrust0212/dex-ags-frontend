@@ -34,7 +34,8 @@ interface IfoPoolInfo {
   saleAmount: string
   raiseAmount: string
   cakeToBurn: string
-  distributionRatio: number // Range [0-1]
+  distributionRatio: number // Range [0-1],
+  raiseAmountInCurrency?: string
 }
 
 export interface Ifo {
@@ -51,6 +52,8 @@ export interface Ifo {
   version: number
   [PoolIds.poolBasic]?: IfoPoolInfo
   [PoolIds.poolUnlimited]: IfoPoolInfo
+  startTime: number
+  endTime: number
 }
 
 export enum PoolCategory {

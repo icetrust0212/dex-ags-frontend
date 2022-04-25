@@ -51,6 +51,30 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({ poolId, ifo, publicIfoD
   const totalLPCommittedInUSD = currencyPriceInUSD.times(totalLPCommitted)
   const totalCommitted = `~$${formatNumber(totalLPCommittedInUSD.toNumber(), 2, 2)} (${totalCommittedPercent}%)`
 
+  const getTimeInterval = (startTime: number, endTime: number): string => {
+    const diff = endTime - startTime // second
+    const d = diff / (24 * 3600)
+    const h = (diff % (24 * 3600)) / 3600
+    const m = (diff % 3600) / 60
+    let result = ''
+    if (d > 0) {
+      result += `${d}Day `
+    }
+    if (h > 0 || m > 0) {
+      result += `${h}Hours `
+    }
+    if (m > 0) {
+      result += `${m}Minutes`
+    }
+    return result
+  }
+  const options = {
+    timeZone: 'UTC',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }
   /* Format end */
 
   const renderBasedOnIfoStatus = () => {
@@ -61,8 +85,23 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({ poolId, ifo, publicIfoD
           <FooterEntry label={t('Funds to raise:')} value={ifo[poolId].raiseAmount} />
           {/* <FooterEntry label={t('AGS to burn:')} value={ifo[poolId].cakeToBurn} /> */}
           <FooterEntry
+            label={t(`Funds to raise (in ${ifo.currency.symbol}):`)}
+            value={`${ifo[poolId].raiseAmountInCurrency} ${ifo.currency.symbol}`}
+          />
+          <FooterEntry
             label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
             value={`$${ifo.tokenOfferingPrice}`}
+          />
+          <FooterEntry label={t('Launchpad Duration:')} value={`${getTimeInterval(ifo.startTime, ifo.endTime)}`} />
+          <FooterEntry
+            label={t('Launchpad starts at:')}
+            // @ts-ignore
+            value={`${new Date(ifo.startTime * 1000).toLocaleDateString('en-US', options)} UTC`}
+          />
+          <FooterEntry
+            label={t('Launchpad ends at:')}
+            // @ts-ignore
+            value={`${new Date(ifo.endTime * 1000).toLocaleDateString('en-US', options)} UTC`}
           />
         </>
       )

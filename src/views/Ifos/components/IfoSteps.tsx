@@ -22,14 +22,10 @@ interface Props {
 
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.gradients.bubblegum};
-  margin-left: -16px;
-  margin-right: -16px;
   padding-top: 48px;
   padding-bottom: 48px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    margin-left: -24px;
-    margin-right: -24px;
   }
 `
 
