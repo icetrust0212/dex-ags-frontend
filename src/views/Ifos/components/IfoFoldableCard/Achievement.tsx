@@ -43,7 +43,7 @@ const Achievement: React.FC<Props> = ({ ifo, publicIfoData }) => {
 
   return (
     <Container>
-      <AchievementFlex isFinished={publicIfoData.status === 'finished'} alignItems="center" flexGrow={1}>
+      {/* <AchievementFlex isFinished={publicIfoData.status === 'finished'} alignItems="center" flexGrow={1}>
         <Image src={`/images/achievements/ifo-${tokenName}.svg`} width={56} height={56} mr="8px" />
         <Flex flexDirection="column">
           <Text color="secondary" fontSize="12px">
@@ -58,16 +58,16 @@ const Achievement: React.FC<Props> = ({ ifo, publicIfoData }) => {
               <Text color="textSubtle">{publicIfoData.numberPoints}</Text>
             </Flex>
           </Flex>
-          {/* {publicIfoData.currencyPriceInUSD.gt(0) ? (
+          {publicIfoData.currencyPriceInUSD.gt(0) ? (
             <Text color="textSubtle" fontSize="12px">
               {t(`Commit ~%amount% $${ifo.currency.symbol} in total to earn!`, { amount: minLpForAchievement.toFixed(3) })}
             </Text>
           ) : (
             <Skeleton minHeight={18} width={80} />
-          )} */}
+          )}
         </Flex>
-      </AchievementFlex>
-      <Flex alignItems="flex-end" flexDirection="column">
+      </AchievementFlex> */}
+      <Flex alignItems="flex-start" flexDirection="column">
         <StyledLinkExternal href={ifo.articleUrl} mb="8px">
           {t('About %title%', { title: campaignTitle })}
         </StyledLinkExternal>

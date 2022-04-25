@@ -17,7 +17,6 @@ const Ifo = () => {
   const publicIfoData = useGetPublicIfoV2Data(activeIfo)
   const walletIfoData = useGetWalletIfoV2Data(activeIfo)
 
-  console.log('ifo : ', publicIfoData, walletIfoData)
   return (
     <IfoLayout id="current-ifo">
       <CardWrapper>

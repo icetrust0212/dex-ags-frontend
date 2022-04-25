@@ -3,10 +3,28 @@ import { useTranslation } from 'contexts/Localization'
 import { Route, useRouteMatch, Link } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem, Flex, Text } from '@pancakeswap/uikit'
 import Container from 'components/Layout/Container'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Hero from './components/Hero'
 import CurrentIfo from './CurrentIfo'
 import PastIfo from './PastIfo'
+
+const float = keyframes`
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+`
+
+const FloatingRocket = styled.img`
+  width: 48px;
+  animation: ${float} 6s ease-in-out infinite;
+  transform: translate3d(0, 0, 0);
+`
 
 const Ifos = () => {
   const { t } = useTranslation()
@@ -24,6 +42,9 @@ const Ifos = () => {
             {t('Past IDO')}
           </ButtonMenuItem>
         </ButtonMenu>
+      </Flex>
+      <Flex justifyContent="center" mt="15px" mb="15px">
+        <FloatingRocket src="/images/ifos/rocket.png" />
       </Flex>
       <Flex justifyContent="center" alignItems="center" mb="10px" flexWrap="wrap">
         <Text bold fontSize="24px" mr="8px">
