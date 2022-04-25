@@ -26,7 +26,7 @@ const ifos: Ifo[] = [
     },
     currency: mainnetTokens.wbnb,
     token: tokens.cake,
-    releaseBlockNumber: 867810,
+    releaseBlockNumber: 926005,
     campaignId: '0',
     articleUrl: 'https://altergrimace.medium.com/ags-finance-amm-dex-on-astar-network-8b1295e5b170',
     tokenOfferingPrice: 0.1,
