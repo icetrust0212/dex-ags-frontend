@@ -106,6 +106,7 @@ const Stats = () => {
           mr={[null, null, null, '16px']}
           ml={[null, null, null, '16px']}
           mb={['16px', null, null, '0']}
+          mt={['16px', null, null, '0']}
         >
           <StatCardContent
             headingText={t(`%marketCap% Marketcap`, { marketCap: mcapString })}
@@ -115,15 +116,15 @@ const Stats = () => {
         </IconCard>
         <IconCard {...TradesCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
-            headingText={t(`%circulating% $${mainnetTokens.cake.symbol} `, { circulating: cakeSupplyText })}
+            headingText={t(`%circulating%`, { circulating: cakeSupplyText })}
             bodyText={t(`$${mainnetTokens.cake.symbol} Circulating Balance`)}
             highlightColor={theme.colors.success}
           />
         </IconCard>
         <IconCard {...BurnCarddata} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
-            headingText={t(`%burnedBalance% $${mainnetTokens.cake.symbol} `, { burnedBalance })}
-            bodyText={t('Burned')}
+            headingText={t(`%burnedBalance%`, { burnedBalance })}
+            bodyText={t(`$${mainnetTokens.cake.symbol} Burned`)}
             highlightColor={theme.colors.warning}
           />
         </IconCard>

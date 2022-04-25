@@ -2,7 +2,7 @@ import { mainnetTokens } from 'config/constants/tokens'
 import { SalesSectionProps } from '.'
 
 export const swapSectionData: SalesSectionProps = {
-  headingText: 'NFT Intergated DEX/AMM.',
+  headingText: 'NFT Integrated DEX/AMM.',
   bodyText: 'Trade any token on Astar Network in seconds, just by connecting your wallet.',
   reverse: false,
   primaryButton: {
@@ -19,7 +19,7 @@ export const swapSectionData: SalesSectionProps = {
     path: '/images/home/trade/',
     attributes: [
       { src: 'ASTR', alt: 'ASTR token' },
-      { src: 'DOT', alt: 'DOT token' },
+      { src: 'ETH', alt: 'ETH token' },
       { src: 'AGS', alt: 'AGS token' },
     ],
   },

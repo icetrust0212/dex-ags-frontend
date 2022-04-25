@@ -38,7 +38,8 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
   {
     label: t('Launchpad'),
     href: '/launchpad',
-    icon: 'IFO',
+    icon: 'Currency',
+    showItemsOnMobile: false,
     items: [],
   },
 
@@ -101,22 +102,8 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
         href: 'https://dexscreener.com/',
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
-      // {
-      //   label: t('Voting'),
-      //   href: '/voting',
-      // },
-      // {
-      //   type: DropdownMenuItemType.DIVIDER,
-      // },
-      // {
-      //   label: t('Leaderboard'),
-      //   href: '/teams',
-      // },
-      // {
-      //   type: DropdownMenuItemType.DIVIDER,
-      // },
       {
-        label: t('Blog'),
+        label: t('Medium'),
         href: 'https://altergrimace.medium.com/',
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },

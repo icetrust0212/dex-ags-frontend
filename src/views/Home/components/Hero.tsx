@@ -53,8 +53,12 @@ const BunnyWrapper = styled.div`
   width: 100%;
   animation: ${flyingAnim} 3.5s ease-in-out infinite;
   img {
+    ${({ theme }) => theme.mediaQueries.md} {
+      width: 75%;
+    }
     border-radius: 50%;
-    width: 75%;
+    // display: none;
+    width: 100%;
   }
 `
 
@@ -103,7 +107,8 @@ const Hero = () => {
         flexDirection={['column-reverse', null, null, 'row']}
         alignItems={['flex-end', null, null, 'center']}
         justifyContent="center"
-        mt={[account ? '280px' : '50px', null, 0]}
+        mt={['25px', null, 0]}
+        mb={['25px', null, 0]}
         id="homepage-hero"
       >
         <Flex flex="1" flexDirection="column">
@@ -121,8 +126,8 @@ const Hero = () => {
           </Flex>
         </Flex>
         <Flex
-          height={['164px', null, null, '100%']}
-          width={['164px', null, null, '100%']}
+          // height={['164px', null, null, '100%']}
+          // width={['164px', null, null, '100%']}
           flex={[null, null, null, '1']}
           mb={['24px', null, null, '0']}
           position="relative"
