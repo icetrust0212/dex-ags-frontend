@@ -21,7 +21,7 @@
     {
       "name": "AGS Token",
       "symbol": "AGS",
-      "address": "0x555d672A69338753B9f2091a7085c5d1A60459f3",
+      "address": "0xdD6B6989e19f8e3f79580D7B243b1a857c6cB36C",
       "chainId": 592,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png"

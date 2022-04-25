@@ -36,7 +36,7 @@ export const mainnetTokens = {
   bnb: new Token(MAINNET, '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720', 18, 'ASTR', 'ASTR', 'https://www.astar.com/'),
   cake: new Token(
     MAINNET,
-    '0x555d672A69338753B9f2091a7085c5d1A60459f3',
+    '0xdD6B6989e19f8e3f79580D7B243b1a857c6cB36C',
     18,
     'AGS',
     'AGS Token',
@@ -111,7 +111,7 @@ export const mainnetTokens = {
   ),
   syrup: new Token(
     MAINNET,
-    '0x36a8A1a6be0D12249Deb48cFd99c4d1a767c5BB0',
+    '0x349Df68AE91b56f934Ed2dD674c34ddec76DebeD',
     18,
     'SYRUP',
     'SyrupBar Token',

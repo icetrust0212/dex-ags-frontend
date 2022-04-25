@@ -9,7 +9,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'AGS',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
-      592: '0x555d672A69338753B9f2091a7085c5d1A60459f3',
+      592: '0xdD6B6989e19f8e3f79580D7B243b1a857c6cB36C',
     },
     token: serializedTokens.syrup,
     quoteToken: serializedTokens.wbnb,
@@ -33,6 +33,16 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.usdt,
     quoteToken: serializedTokens.wbnb,
+  },
+  {
+    pid: 3,
+    lpSymbol: 'USDC/AGS',
+    lpAddresses: {
+      97: '',
+      592: '0x4d0837C2CD946A7aeCbF1B3cdcC01CfC5092E6f9',
+    },
+    token: serializedTokens.cake,
+    quoteToken: serializedTokens.usdc,
   },
   // {
   //   pid: 3,
