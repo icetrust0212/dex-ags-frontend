@@ -16,7 +16,7 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 1,
-    lpSymbol: 'AGS/WASTR',
+    lpSymbol: 'AGS-ASTR',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
       592: '0x2f6C10062647EB0CF044601fDbC031dcE0710b73',
@@ -26,7 +26,7 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 2,
-    lpSymbol: 'USDT/WASTR',
+    lpSymbol: 'USDT-ASTR',
     lpAddresses: {
       97: '',
       592: '0x624eD15D9BEd02f905f41e6E4190f0Af9caf2151',
@@ -36,13 +36,53 @@ const farms: SerializedFarmConfig[] = [
   },
   {
     pid: 3,
-    lpSymbol: 'USDC/AGS',
+    lpSymbol: 'USDC-AGS',
     lpAddresses: {
       97: '',
       592: '0x4d0837C2CD946A7aeCbF1B3cdcC01CfC5092E6f9',
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.usdc,
+  },
+  {
+    pid: 4,
+    lpSymbol: 'USDC-USDT',
+    lpAddresses: {
+      97: '',
+      592: '0x0B65bf3Ed38a1ca16faeD48188e6A79221B6c32C',
+    },
+    token: serializedTokens.usdt,
+    quoteToken: serializedTokens.usdc,
+  },
+  {
+    pid: 5,
+    lpSymbol: 'ASTR-USDC',
+    lpAddresses: {
+      97: '',
+      592: '0xB31A1eE9Dc191E551062B90f574eC999cdbC4e15',
+    },
+    token: serializedTokens.wbnb,
+    quoteToken: serializedTokens.usdc,
+  },
+  {
+    pid: 6,
+    lpSymbol: 'ASTR-WETH',
+    lpAddresses: {
+      97: '',
+      592: '0x74cd64D2c32AC33469bb7Cf48B35f2FC80Ba7e87',
+    },
+    token: serializedTokens.wbnb,
+    quoteToken: serializedTokens.eth,
+  },
+  {
+    pid: 7,
+    lpSymbol: 'ASTR-WBTC',
+    lpAddresses: {
+      97: '',
+      592: '0xAC116445AaF95f1de231e638BeaE0737e5574229',
+    },
+    token: serializedTokens.wbnb,
+    quoteToken: serializedTokens.wbtc,
   },
   // {
   //   pid: 3,

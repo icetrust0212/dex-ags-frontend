@@ -46,8 +46,8 @@ const Ifos = () => {
       <Flex justifyContent="center" mt="15px" mb="15px">
         <FloatingRocket src="/images/ifos/rocket.png" />
       </Flex>
-      <Flex justifyContent="center" alignItems="center" mb="10px" flexWrap="wrap">
-        <Text bold fontSize="24px" mr="8px">
+      <Flex justifyContent="center" alignItems="center" mb="10px" flexWrap="wrap" flexDirection="column">
+        <Text bold fontSize="24px" mb="8px">
           {t('Launchpad')}
         </Text>
         <Text fontSize="18px">Participate In Upcoming Protocols On Astar.</Text>

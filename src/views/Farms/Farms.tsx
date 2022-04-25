@@ -22,6 +22,7 @@ import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
 import Select, { OptionProps } from 'components/Select/Select'
 import Loading from 'components/Loading'
+import { mainnetTokens } from 'config/constants/tokens'
 import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
 import Table from './components/FarmTable/FarmTable'
 import FarmTabButtons from './components/FarmTabButtons'
@@ -143,9 +144,7 @@ const Farms: React.FC<FarmProps> = ({ tokenMode }) => {
   // const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
   // const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
 
-  const activeFarms = farmsLP.filter(
-    (farm) => farm.pid !== 0 && farm.pid !== 1 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid),
-  )
+  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
   const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
@@ -382,7 +381,7 @@ const Farms: React.FC<FarmProps> = ({ tokenMode }) => {
           {t('Farms')}
         </Heading>
         <Heading scale="lg" color="text">
-          {t('Stake LP tokens to earn $AGS.')}
+          {t(`Stake LP tokens to earn $${mainnetTokens.cake.symbol}.`)}
         </Heading>
         {/* <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
           <Button p="0" variant="text">

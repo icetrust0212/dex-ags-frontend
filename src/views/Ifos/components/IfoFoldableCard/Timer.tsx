@@ -33,7 +33,7 @@ const Timer: React.FC<Props> = ({ publicIfoData }) => {
                 minute: timeUntil.minutes,
               })}
             </Text>
-            <Link
+            {/* <Link
               href={getBscScanLink(startBlockNum, 'countdown')}
               target="blank"
               rel="noopener noreferrer"
@@ -41,7 +41,7 @@ const Timer: React.FC<Props> = ({ publicIfoData }) => {
               textTransform="lowercase"
             >
               {`(${t('Blocks')})`}
-            </Link>
+            </Link> */}
           </Flex>
         </>
       )}

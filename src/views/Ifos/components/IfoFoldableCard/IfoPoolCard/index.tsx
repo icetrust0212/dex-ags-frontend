@@ -50,8 +50,8 @@ const SmallCard: React.FC<IfoCardProps> = ({ poolId, ifo, publicIfoData, walletI
   return (
     <>
       {tooltipVisible && tooltip}
-      <Card>
-        <CardHeader variant={config.variant}>
+      <>
+        {/* <CardHeader variant={config.variant}>
           <Flex justifyContent="space-between" alignItems="center">
             <Text bold fontSize="20px">
               {t(ifo.name)}
@@ -60,7 +60,7 @@ const SmallCard: React.FC<IfoCardProps> = ({ poolId, ifo, publicIfoData, walletI
               <HelpIcon />
             </div>
           </Flex>
-        </CardHeader>
+        </CardHeader> */}
         <CardBody>
           <IfoCardTokens
             poolId={poolId}
@@ -82,7 +82,7 @@ const SmallCard: React.FC<IfoCardProps> = ({ poolId, ifo, publicIfoData, walletI
           />
           <IfoCardDetails poolId={poolId} ifo={ifo} publicIfoData={publicIfoData} />
         </CardBody>
-      </Card>
+      </>
     </>
   )
 }

@@ -2488,7 +2488,7 @@
 
 "@pancakeswap/uikit@https://github.com/trust0212/dex-astra-uikit":
   version "0.55.0"
-  resolved "https://github.com/trust0212/dex-astra-uikit#a2427c179101339c6e939be26f64d59f529a1e84"
+  resolved "https://github.com/trust0212/dex-astra-uikit#b84d24139991ea494f6dc2bc284d42808eb949aa"
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"

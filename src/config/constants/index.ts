@@ -22,7 +22,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     mainnetTokens.cake,
     mainnetTokens.busd,
     mainnetTokens.usdt,
-    mainnetTokens.btcb,
+    mainnetTokens.wbtc,
     mainnetTokens.BNB,
     mainnetTokens.eth,
     mainnetTokens.usdc,
@@ -49,7 +49,7 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.usdt, mainnetTokens.cake, mainnetTokens.btcb],
+  [ChainId.MAINNET]: [mainnetTokens.usdt, mainnetTokens.cake, mainnetTokens.wbtc],
   [ChainId.TESTNET]: [testnetTokens.wbnb, testnetTokens.cake, testnetTokens.busd],
 }
 

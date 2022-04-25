@@ -59,7 +59,7 @@ export const mainnetTokens = {
     'https://www.makerdao.com/',
   ),
   usdt: new Token(MAINNET, '0x3795C36e7D12A8c252A20C5a7B455f7c57b60283', 6, 'USDT', 'Tether USD', 'https://tether.to/'),
-  btcb: new Token(
+  wbtc: new Token(
     MAINNET,
     '0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA',
     18,

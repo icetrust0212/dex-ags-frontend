@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {
+  Text,
   Card,
   CardHeader,
   CardBody,
@@ -55,6 +56,8 @@ const StyledCard = styled(Card)`
   max-width: 536px;
   width: 100%;
   margin: auto;
+  margin: 0 !important;
+  height: fit-content;
 `
 
 const Header = styled(CardHeader)<{ ifoId: string }>`
@@ -70,7 +73,7 @@ const Header = styled(CardHeader)<{ ifoId: string }>`
 
 const FoldableContent = styled.div<{ isVisible: boolean; isActive: boolean }>`
   display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
-  background: ${({ isActive, theme }) => (isActive ? theme.colors.gradients.bubblegum : theme.colors.dropdown)};
+  // background: ${({ isActive, theme }) => (isActive ? theme.colors.gradients.bubblegum : theme.colors.dropdown)};
 `
 
 const CardsWrapper = styled.div<{ singleCard: boolean }>`
@@ -152,26 +155,21 @@ const IfoFoldableCard: React.FC<IfoFoldableCardProps> = ({ ifo, publicIfoData, w
         {isActive && <Progress variant="flat" primaryStep={publicIfoData.progress} />}
         <StyledCardBody>
           {isActive && <Timer publicIfoData={publicIfoData} />}
-          <CardsWrapper singleCard={!publicIfoData.poolBasic || !walletIfoData.poolBasic}>
-            {/* {publicIfoData.poolBasic && walletIfoData.poolBasic && (
-              <IfoPoolCard
-                poolId={PoolIds.poolBasic}
-                ifo={ifo}
-                publicIfoData={publicIfoData}
-                walletIfoData={walletIfoData}
-                onApprove={handleApprove}
-                enableStatus={enableStatus}
-              />
-            )} */}
-            <IfoPoolCard
-              poolId={PoolIds.poolUnlimited}
-              ifo={ifo}
-              publicIfoData={publicIfoData}
-              walletIfoData={walletIfoData}
-              onApprove={handleApprove}
-              enableStatus={enableStatus}
-            />
-          </CardsWrapper>
+          <Text textAlign="center">
+            AGS Finance is the first DEX/AMM to introduce protocol-owned liquidity on Astar Network. Other offerings
+            include the lowest trading fees of 0.17%, ensuring that users get the best rate possible when trading on AGS
+            Finance.
+          </Text>
+          {/* <CardsWrapper singleCard={!publicIfoData.poolBasic || !walletIfoData.poolBasic}> */}
+          <IfoPoolCard
+            poolId={PoolIds.poolUnlimited}
+            ifo={ifo}
+            publicIfoData={publicIfoData}
+            walletIfoData={walletIfoData}
+            onApprove={handleApprove}
+            enableStatus={enableStatus}
+          />
+          {/* </CardsWrapper> */}
           <Achievement ifo={ifo} publicIfoData={publicIfoData} />
         </StyledCardBody>
         <StyledCardFooter>

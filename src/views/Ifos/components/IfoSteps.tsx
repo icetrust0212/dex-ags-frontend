@@ -13,7 +13,6 @@ import Container from 'components/Layout/Container'
 import { useProfile } from 'state/profile/hooks'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
 import ConnectWalletButton from 'components/ConnectWalletButton'
-import { mainnetTokens, NATIVE_CURRENCY } from '../../../config/constants/tokens'
 
 interface Props {
   ifo: Ifo
@@ -21,7 +20,7 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-  background: ${({ theme }) => theme.colors.gradients.bubblegum};
+  // background: ${({ theme }) => theme.colors.gradients.bubblegum};
   padding-top: 48px;
   padding-bottom: 48px;
 
@@ -117,8 +116,6 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
               {t(
                 `When the IDO sales are live, you can “commit” your $${ifo.currency.symbol} tokens to buy the tokens being sold.`,
               )}{' '}
-              <br />
-              {t('We recommend committing to the Basic Sale first, but you can do both if you like.')}
             </Text>
           </CardBody>
         )

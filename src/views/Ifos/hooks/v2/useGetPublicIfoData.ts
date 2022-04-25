@@ -66,9 +66,12 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   const [currentTime, setCurrentTime] = useState(new Date().getTime() / 1000)
 
   useEffect(() => {
-    setInterval(() => {
+    const id = setInterval(() => {
       setCurrentTime(new Date().getTime() / 1000)
-    }, 1000)
+    }, 30000)
+    return () => {
+      clearInterval(id)
+    }
   }, [])
 
   const fetchIfoData = useCallback(async () => {

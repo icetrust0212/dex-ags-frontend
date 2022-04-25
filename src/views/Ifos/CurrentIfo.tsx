@@ -40,5 +40,9 @@ const CardWrapper = styled.div`
   background: url('/images/hero.png');
   background-size: cover;
   padding-bottom: 40px;
+  min-height: 800px;
+  @media (max-width: 1024px) {
+    min-height: 600px;
+  }
 `
 export default Ifo
