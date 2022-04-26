@@ -21,7 +21,7 @@ const float = keyframes`
 `
 
 const FloatingRocket = styled.img`
-  width: 48px;
+  width: 80px;
   animation: ${float} 6s ease-in-out infinite;
   transform: translate3d(0, 0, 0);
 `
