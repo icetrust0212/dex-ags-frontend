@@ -25,16 +25,6 @@ const farms: SerializedFarmConfig[] = [
     quoteToken: serializedTokens.wbnb,
   },
   {
-    pid: 2,
-    lpSymbol: 'USDT-ASTR',
-    lpAddresses: {
-      97: '',
-      592: '0x624eD15D9BEd02f905f41e6E4190f0Af9caf2151',
-    },
-    token: serializedTokens.usdt,
-    quoteToken: serializedTokens.wbnb,
-  },
-  {
     pid: 3,
     lpSymbol: 'USDC-AGS',
     lpAddresses: {
@@ -43,6 +33,16 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.usdc,
+  },
+  {
+    pid: 2,
+    lpSymbol: 'USDT-ASTR',
+    lpAddresses: {
+      97: '',
+      592: '0x624eD15D9BEd02f905f41e6E4190f0Af9caf2151',
+    },
+    token: serializedTokens.usdt,
+    quoteToken: serializedTokens.wbnb,
   },
   {
     pid: 4,

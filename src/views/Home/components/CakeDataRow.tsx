@@ -7,6 +7,7 @@ import { Flex, Text, Heading, Skeleton } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Balance from 'components/Balance'
 import tokens from 'config/constants/tokens'
+import { CAKE_PER_BLOCK } from 'config'
 
 const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean }>`
   flex-direction: column;
@@ -41,7 +42,7 @@ const Grid = styled.div`
   }
 `
 
-const emissionsPerBlock = 40
+const emissionsPerBlock = CAKE_PER_BLOCK
 
 const CakeDataRow = () => {
   const { t } = useTranslation()

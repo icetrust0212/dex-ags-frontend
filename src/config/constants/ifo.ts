@@ -4,7 +4,7 @@ import farms from './farms'
 import { Ifo } from './types'
 
 const cakeBnbLpToken = new Token(ChainId.MAINNET, farms[1].lpAddresses[ChainId.MAINNET], 18, farms[1].lpSymbol)
-const WASTR_USDT = new Token(ChainId.MAINNET, farms[2].lpAddresses[ChainId.MAINNET], 18, farms[2].lpSymbol)
+const WASTR_USDT = new Token(ChainId.MAINNET, farms[3].lpAddresses[ChainId.MAINNET], 18, farms[3].lpSymbol)
 
 const ifos: Ifo[] = [
   {
