@@ -8,6 +8,7 @@ import { DeserializedPool } from 'state/types'
 import { getAprData } from 'views/Pools/helpers'
 import BigNumber from 'bignumber.js'
 import { BIG_ZERO } from 'utils/bigNumber'
+import { mainnetTokens } from 'config/constants/tokens'
 
 const ApyLabelContainer = styled(Flex)`
   cursor: pointer;
@@ -31,7 +32,9 @@ const AprRow: React.FC<AprRowProps> = ({ pool, stakedBalance, performanceFee = 0
   const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber(userData.stakingTokenBalance) : BIG_ZERO
 
   const tooltipContent = isAutoVault
-    ? t('APY includes compounding, APR doesn’t. This pool’s CAKE is compounded automatically, so we show APY.')
+    ? t(
+        `APY includes compounding, APR doesn’t. This pool’s ${mainnetTokens.cake.symbol} is compounded automatically, so we show APY.`,
+      )
     : t('This pool’s rewards aren’t compounded automatically, so we show APR')
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, { placement: 'bottom-start' })
@@ -59,12 +62,12 @@ const AprRow: React.FC<AprRowProps> = ({ pool, stakedBalance, performanceFee = 0
     <Flex alignItems="center" justifyContent="space-between">
       {tooltipVisible && tooltip}
       <TooltipText ref={targetRef}>{isAutoVault ? `${t('APY')}:` : `${t('APR')}:`}</TooltipText>
-      {earningsPercentageToDisplay || isFinished ? (
+      {apr || isFinished ? (
         <ApyLabelContainer alignItems="center" onClick={onPresentApyModal}>
           <Balance
             fontSize="16px"
             isDisabled={isFinished}
-            value={isFinished ? 0 : earningsPercentageToDisplay}
+            value={isFinished ? 0 : apr}
             decimals={2}
             unit="%"
             onClick={onPresentApyModal}
