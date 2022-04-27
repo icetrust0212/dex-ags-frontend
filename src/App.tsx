@@ -52,7 +52,7 @@ const PoolFinder = lazy(() => import('./views/PoolFinder'))
 const RemoveLiquidity = lazy(() => import('./views/RemoveLiquidity'))
 // const Info = lazy(() => import('./views/Info'))
 // const NftMarket = lazy(() => import('./views/Nft/market'))
-// const ProfileCreation = lazy(() => import('./views/ProfileCreation'))
+const ProfileCreation = lazy(() => import('./views/ProfileCreation'))
 // const PancakeSquad = lazy(() => import('./views/PancakeSquad'))
 
 // This config is required for number formatting

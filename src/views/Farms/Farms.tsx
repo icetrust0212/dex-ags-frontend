@@ -122,6 +122,7 @@ const Farms: React.FC<FarmProps> = ({ tokenMode }) => {
   const { t } = useTranslation()
   const { data: farmsLP, userDataLoaded } = useFarms()
   const cakePrice = usePriceCakeBusd()
+  console.log('cakePrice: ', cakePrice.toNumber())
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = useUserFarmsViewMode()
   const { account } = useWeb3React()

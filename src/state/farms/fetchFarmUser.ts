@@ -57,9 +57,7 @@ export const fetchFarmUserStakedBalances = async (account: string, farmsToFetch:
 
 export const fetchFarmUserEarnings = async (account: string, farmsToFetch: SerializedFarmConfig[]) => {
   const masterChefAddress = getMasterChefAddress()
-  const masterChef = getMasterchefContract()
 
-  console.log('farmUSerEarning: ', farmsToFetch, await masterChef.pendingAgs(farmsToFetch[0].pid, account))
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
@@ -73,4 +71,40 @@ export const fetchFarmUserEarnings = async (account: string, farmsToFetch: Seria
     return new BigNumber(earnings).toJSON()
   })
   return parsedEarnings
+}
+
+export const fetchFarmUserNFTs = async (account: string, farmsToFetch: SerializedFarmConfig[]) => {
+  const masterChefAddress = getMasterChefAddress()
+
+  const boostCalls = farmsToFetch.map((farm) => {
+    return {
+      address: masterChefAddress,
+      name: 'getBoost',
+      params: [account, farm.pid],
+    }
+  })
+
+  const slotsCalls = farmsToFetch.map((farm) => {
+    return {
+      address: masterChefAddress,
+      name: 'getSlots',
+      params: [account, farm.pid],
+    }
+  })
+
+  const tokenIdsCalls = farmsToFetch.map((farm) => {
+    return {
+      address: masterChefAddress,
+      name: 'getTokenIds',
+      params: [account, farm.pid],
+    }
+  })
+
+  const boosts = await multicall(masterchefABI, boostCalls)
+  const slots = await multicall(masterchefABI, slotsCalls)
+  const tokenIds = await multicall(masterchefABI, tokenIdsCalls)
+  const parsedBoosts = boosts.map((boost) => {
+    return new BigNumber(boost).toJSON()
+  })
+  return { boosts: parsedBoosts, slots, tokenIds }
 }

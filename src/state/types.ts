@@ -29,6 +29,11 @@ interface SerializedFarmUserData {
   tokenBalance: string
   stakedBalance: string
   earnings: string
+  nfts: {
+    boosts: string
+    slots: any
+    tokenIds: any
+  }
 }
 
 export interface DeserializedFarmUserData {
@@ -36,6 +41,11 @@ export interface DeserializedFarmUserData {
   tokenBalance: BigNumber
   stakedBalance: BigNumber
   earnings: BigNumber
+  nfts: {
+    boosts: BigNumber
+    slots: any
+    tokenIds: any
+  }
 }
 
 export interface SerializedFarm extends SerializedFarmConfig {

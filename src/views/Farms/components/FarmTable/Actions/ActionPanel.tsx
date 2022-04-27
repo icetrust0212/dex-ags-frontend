@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { LinkExternal, Text } from '@pancakeswap/uikit'
+import { Flex, LinkExternal, Text } from '@pancakeswap/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getAddress } from 'utils/addressHelpers'
@@ -13,6 +13,7 @@ import StakedAction from './StakedAction'
 import Apr, { AprProps } from '../Apr'
 import Multiplier, { MultiplierProps } from '../Multiplier'
 import Liquidity, { LiquidityProps } from '../Liquidity'
+import NFTBoostSection from '../NFTBoostSection'
 
 export interface ActionPanelProps {
   apr: AprProps
@@ -154,39 +155,44 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   return (
     <Container expanded={expanded}>
-      <InfoContainer>
-        {isActive && (
-          <StakeContainer>
-            <StyledLinkExternal href={`/add/${liquidityUrlPathParts}`}>
-              {t('Get %symbol%', { symbol: lpLabel })}
-            </StyledLinkExternal>
-          </StakeContainer>
-        )}
-        <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
-        {/* <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal> */}
-        <TagsContainer>
-          {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
-          {dual ? <DualTag /> : null}
-        </TagsContainer>
-      </InfoContainer>
-      <ValueContainer>
-        <ValueWrapper>
-          <Text>{t('APR')}</Text>
-          <Apr {...apr} />
-        </ValueWrapper>
-        <ValueWrapper>
-          <Text>{t('Multiplier')}</Text>
-          <Multiplier {...multiplier} />
-        </ValueWrapper>
-        <ValueWrapper>
-          <Text>{t('Liquidity')}</Text>
-          <Liquidity {...liquidity} />
-        </ValueWrapper>
-      </ValueContainer>
-      <ActionContainer>
-        <HarvestAction {...farm} userDataReady={userDataReady} />
-        <StakedAction {...farm} userDataReady={userDataReady} lpLabel={lpLabel} displayApr={apr.value} />
-      </ActionContainer>
+      <Flex flexDirection="column" width="100%">
+        <Flex width="100%" flexWrap="wrap">
+          <InfoContainer>
+            {isActive && (
+              <StakeContainer>
+                <StyledLinkExternal href={`/add/${liquidityUrlPathParts}`}>
+                  {t('Get %symbol%', { symbol: lpLabel })}
+                </StyledLinkExternal>
+              </StakeContainer>
+            )}
+            <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
+            {/* <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal> */}
+            <TagsContainer>
+              {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
+              {dual ? <DualTag /> : null}
+            </TagsContainer>
+          </InfoContainer>
+          <ValueContainer>
+            <ValueWrapper>
+              <Text>{t('APR')}</Text>
+              <Apr {...apr} />
+            </ValueWrapper>
+            <ValueWrapper>
+              <Text>{t('Multiplier')}</Text>
+              <Multiplier {...multiplier} />
+            </ValueWrapper>
+            <ValueWrapper>
+              <Text>{t('Liquidity')}</Text>
+              <Liquidity {...liquidity} />
+            </ValueWrapper>
+          </ValueContainer>
+          <ActionContainer>
+            <HarvestAction {...farm} userDataReady={userDataReady} />
+            <StakedAction {...farm} userDataReady={userDataReady} lpLabel={lpLabel} displayApr={apr.value} />
+          </ActionContainer>
+        </Flex>
+        <NFTBoostSection farm={farm} />
+      </Flex>
     </Container>
   )
 }

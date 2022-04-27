@@ -9,6 +9,7 @@ import {
   fetchFarmUserAllowances,
   fetchFarmUserTokenBalances,
   fetchFarmUserStakedBalances,
+  fetchFarmUserNFTs,
 } from './fetchFarmUser'
 import { SerializedFarmsState, SerializedFarm } from '../types'
 
@@ -19,6 +20,11 @@ const noAccountFarmConfig = farmsConfig.map((farm) => ({
     tokenBalance: '0',
     stakedBalance: '0',
     earnings: '0',
+    nfts: {
+      boosts: '0',
+      slots: {},
+      tokenIds: {},
+    },
   },
 }))
 
@@ -56,19 +62,19 @@ interface FarmUserDataResponse {
   tokenBalance: string
   stakedBalance: string
   earnings: string
+  nfts: any
 }
 
 export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], { account: string; pids: number[] }>(
   'farms/fetchFarmUserDataAsync',
   async ({ account, pids }) => {
-    console.log('farmUser: ', account, pids)
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
     const userFarmAllowances = await fetchFarmUserAllowances(account, farmsToFetch)
     const userFarmTokenBalances = await fetchFarmUserTokenBalances(account, farmsToFetch)
-    console.log('farmUser: ', account, userFarmTokenBalances)
     const userStakedBalances = await fetchFarmUserStakedBalances(account, farmsToFetch)
     const userFarmEarnings = await fetchFarmUserEarnings(account, farmsToFetch)
-    console.log('farmUser: ', account, userFarmEarnings)
+    const userFarmNFTs = await fetchFarmUserNFTs(account, farmsToFetch)
+    console.log('farmUser: ', account, userFarmNFTs)
 
     return userFarmAllowances.map((farmAllowance, index) => {
       return {
@@ -77,6 +83,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], {
         tokenBalance: userFarmTokenBalances[index],
         stakedBalance: userStakedBalances[index],
         earnings: userFarmEarnings[index],
+        nfts: userFarmNFTs[index],
       }
     })
   },

@@ -18,6 +18,18 @@ const deserializeFarmUserData = (farm: SerializedFarm): DeserializedFarmUserData
     tokenBalance: farm.userData ? new BigNumber(farm.userData.tokenBalance) : BIG_ZERO,
     stakedBalance: farm.userData ? new BigNumber(farm.userData.stakedBalance) : BIG_ZERO,
     earnings: farm.userData ? new BigNumber(farm.userData.earnings) : BIG_ZERO,
+    nfts:
+      farm.userData && farm.userData.nfts
+        ? {
+            boosts: new BigNumber(farm.userData.nfts.boosts),
+            slots: farm.userData.nfts.slots,
+            tokenIds: farm.userData.nfts.tokenIds,
+          }
+        : {
+            boosts: BIG_ZERO,
+            slots: undefined,
+            tokenIds: undefined,
+          },
   }
 }
 
@@ -111,12 +123,13 @@ export const useFarmFromLpSymbol = (lpSymbol: string): DeserializedFarm => {
 
 export const useFarmUser = (pid): DeserializedFarmUserData => {
   const { userData } = useFarmFromPid(pid)
-  const { allowance, tokenBalance, stakedBalance, earnings } = userData
+  const { allowance, tokenBalance, stakedBalance, earnings, nfts } = userData
   return {
     allowance,
     tokenBalance,
     stakedBalance,
     earnings,
+    nfts,
   }
 }
 
