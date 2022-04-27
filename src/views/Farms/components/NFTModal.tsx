@@ -32,7 +32,7 @@ const NFTModal: React.FC<NFTModalProps> = ({ onConfirm, onDismiss, nfts, slotNum
   const label = isDeposit ? 'Deposit NFT' : 'Withdraw NFT'
 
   return (
-    <CustomModal title={t(`${label} ${slotNumber}`)} onDismiss={onDismiss}>
+    <CustomModal title={t(`${label} ${slotNumber + 1}`)} onDismiss={onDismiss}>
       {isDeposit && (
         <ModalBody minHeight="100px" alignItems="center" justifyContent="center">
           <Text fontSize="28px">Coming Soon</Text>
@@ -52,7 +52,7 @@ const NFTModal: React.FC<NFTModalProps> = ({ onConfirm, onDismiss, nfts, slotNum
             setPendingTx(true)
             try {
               await onConfirm(val)
-              toastSuccess(t('Deposited!'), t('Your NFT has beed deposited successfully.'))
+              // toastSuccess(t('Deposited!'), t('Your NFT has beed deposited successfully.'))
               onDismiss()
             } catch (e) {
               toastError(
