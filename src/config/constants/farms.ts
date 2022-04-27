@@ -61,8 +61,8 @@ const farms: SerializedFarmConfig[] = [
       97: '',
       592: '0xB31A1eE9Dc191E551062B90f574eC999cdbC4e15',
     },
-    token: serializedTokens.wbnb,
-    quoteToken: serializedTokens.usdc,
+    token: serializedTokens.usdc,
+    quoteToken: serializedTokens.wbnb,
   },
   {
     pid: 6,
@@ -71,8 +71,8 @@ const farms: SerializedFarmConfig[] = [
       97: '',
       592: '0x74cd64D2c32AC33469bb7Cf48B35f2FC80Ba7e87',
     },
-    token: serializedTokens.wbnb,
-    quoteToken: serializedTokens.eth,
+    token: serializedTokens.eth,
+    quoteToken: serializedTokens.wbnb,
   },
   {
     pid: 7,
@@ -81,8 +81,8 @@ const farms: SerializedFarmConfig[] = [
       97: '',
       592: '0xAC116445AaF95f1de231e638BeaE0737e5574229',
     },
-    token: serializedTokens.wbnb,
-    quoteToken: serializedTokens.wbtc,
+    token: serializedTokens.wbtc,
+    quoteToken: serializedTokens.wbnb,
   },
   // {
   //   pid: 3,
