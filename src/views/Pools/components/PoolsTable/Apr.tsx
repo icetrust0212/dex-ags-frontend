@@ -54,13 +54,13 @@ const Apr: React.FC<AprProps> = ({ pool, showIcon, stakedBalance, performanceFee
 
   return (
     <AprLabelContainer alignItems="center" justifyContent="space-between" {...props}>
-      {earningsPercentageToDisplay || isFinished ? (
+      {apr || isFinished ? (
         <>
           <Balance
             onClick={openRoiModal}
             fontSize="16px"
             isDisabled={isFinished}
-            value={isFinished ? 0 : earningsPercentageToDisplay}
+            value={isFinished ? 0 : apr}
             decimals={2}
             unit="%"
           />
