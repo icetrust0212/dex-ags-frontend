@@ -90,7 +90,7 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({ poolId, ifo, publicIfoD
           />
           <FooterEntry
             label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
-            value={`$${ifo.tokenOfferingPrice} $${ifo.currency.symbol}`}
+            value={`$${ifo.tokenOfferingPrice} `}
           />
           <FooterEntry label={t('Launchpad Duration:')} value={`${getTimeInterval(ifo.startTime, ifo.endTime)}`} />
           <FooterEntry
