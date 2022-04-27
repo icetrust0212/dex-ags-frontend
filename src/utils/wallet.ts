@@ -18,13 +18,13 @@ export const setupNetwork = async () => {
         params: [
           {
             chainId: `0x${chainId.toString(16)}`,
-            chainName: 'Binance Smart Chain Mainnet',
+            chainName: 'Astar Network',
             nativeCurrency: {
               name: NATIVE_CURRENCY.symbol,
               symbol: NATIVE_CURRENCY.symbol,
               decimals: 18,
             },
-            rpcUrls: nodes,
+            rpcUrls: [process.env.REACT_APP_WALLET_RPC],
             blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
           },
         ],
