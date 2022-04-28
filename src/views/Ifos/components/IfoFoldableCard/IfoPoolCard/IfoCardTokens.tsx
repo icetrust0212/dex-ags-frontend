@@ -116,7 +116,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
     if (publicIfoData.status === 'coming_soon') {
       return (
         <>
-          <TokenSection>
+          <TokenSection primaryToken={ifo.token}>
             <Label>{t('On sale')}</Label>
             <Value>{ifo[poolId].saleAmount}</Value>
           </TokenSection>
@@ -140,14 +140,14 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
     if (publicIfoData.status === 'live') {
       return (
         <>
-          <CakeBnbTokenSection mb="24px">
+          <TokenSection mb="24px" primaryToken={currency}>
             <Label>{t('Your %symbol% committed', { symbol: currency.symbol })}</Label>
             <Value>{getBalanceNumber(userPoolCharacteristics.amountTokenCommittedInLP, currency.decimals)}</Value>
             <PercentageOfTotal
               userAmount={userPoolCharacteristics.amountTokenCommittedInLP}
               totalAmount={publicPoolCharacteristics.totalAmountPool}
             />
-          </CakeBnbTokenSection>
+          </TokenSection>
           <TokenSection primaryToken={ifo.token}>
             <Label>{t('%symbol% to receive', { symbol: token.symbol })}</Label>
             <Value>{getBalanceNumber(userPoolCharacteristics.offeringAmountInToken, token.decimals)}</Value>
@@ -163,7 +163,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
         </Flex>
       ) : (
         <>
-          <CakeBnbTokenSection mb="24px">
+          <TokenSection mb="24px" primaryToken={currency}>
             <Label>
               {t(hasClaimed ? 'Your $%symbol% RECLAIMED' : 'Your $%symbol% TO RECLAIM', { symbol: currency.symbol })}
             </Label>
@@ -175,7 +175,7 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
               userAmount={userPoolCharacteristics.amountTokenCommittedInLP}
               totalAmount={publicPoolCharacteristics.totalAmountPool}
             />
-          </CakeBnbTokenSection>
+          </TokenSection>
           <TokenSection primaryToken={ifo.token}>
             <Label> {t(hasClaimed ? '$%symbol% received' : '$%symbol% to receive', { symbol: token.symbol })}</Label>
             <Flex alignItems="center">
