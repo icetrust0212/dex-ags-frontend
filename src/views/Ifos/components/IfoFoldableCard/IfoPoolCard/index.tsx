@@ -46,6 +46,7 @@ const SmallCard: React.FC<IfoCardProps> = ({ poolId, ifo, publicIfoData, walletI
   const { targetRef, tooltip, tooltipVisible } = useTooltip(t(config.tooltip), { placement: 'bottom' })
 
   const isLoading = isProfileLoading || publicIfoData.status === 'idle'
+  console.log('isLoading: ', isProfileLoading, publicIfoData.status)
 
   return (
     <>
