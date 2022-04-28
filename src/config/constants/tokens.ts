@@ -120,8 +120,8 @@ export const mainnetTokens = {
   lynx: new Token(
     MAINNET,
     '0x81bC9336f22D832555ceA0Ad84A3FD7F7426cf47',
-    18,
-    'Lynx',
+    9,
+    'LYNX',
     'Astar Lynx',
     'https://ags.finance',
   ),
