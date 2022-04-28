@@ -89,6 +89,14 @@
       "chainId": 592,
       "decimals": 6,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png"
+    },
+    {
+      "name": "Astar LYNX",
+      "symbol": "LYNX",
+      "address": "0x81bC9336f22D832555ceA0Ad84A3FD7F7426cf47",
+      "chainId": 592,
+      "decimals": 6,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x81bC9336f22D832555ceA0Ad84A3FD7F7426cf47.png"
     }
   ]
 }

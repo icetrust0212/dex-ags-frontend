@@ -117,6 +117,14 @@ export const mainnetTokens = {
     'SyrupBar Token',
     'https://ags.finance/',
   ),
+  lynx: new Token(
+    MAINNET,
+    '0x81bC9336f22D832555ceA0Ad84A3FD7F7426cf47',
+    18,
+    'LYNX',
+    'Astar Lynx',
+    'https://ags.finance',
+  ),
 }
 
 export const testnetTokens = {
