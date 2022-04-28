@@ -29,13 +29,13 @@ const expandAnimation = keyframes`
     max-height: 0px;
   }
   to {
-    max-height: 500px;
+    max-height: 800px;
   }
 `
 
 const collapseAnimation = keyframes`
   from {
-    max-height: 500px;
+    max-height: 800px;
   }
   to {
     max-height: 0px;
@@ -103,12 +103,14 @@ const TagsContainer = styled.div`
 const ActionContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  flex: 1;
+  margin-top: 30px;
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
     align-items: center;
     flex-grow: 1;
     flex-basis: 0;
+    margin-top: 0;
   }
 `
 
@@ -156,7 +158,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   return (
     <Container expanded={expanded}>
       <Flex flexDirection="column" width="100%">
-        <Flex width="100%" flexWrap="wrap">
+        <Flex width="100%" flexWrap="wrap" mt="20px">
           <InfoContainer>
             {isActive && (
               <StakeContainer>
