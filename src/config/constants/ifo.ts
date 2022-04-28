@@ -9,7 +9,7 @@ const WASTR_USDT = new Token(ChainId.MAINNET, farms[3].lpAddresses[ChainId.MAINN
 const ifos: Ifo[] = [
   {
     id: 'AGS-1',
-    address: '0x513DD5f7EA6E690A4674457753482758661D4197',
+    address: '0x8587c626Ed694eE8b40Ca228C4a88C562b377b72',
     isActive: true,
     name: 'AGS Finance',
     poolBasic: {

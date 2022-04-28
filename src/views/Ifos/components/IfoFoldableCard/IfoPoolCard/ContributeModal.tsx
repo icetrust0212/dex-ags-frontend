@@ -13,6 +13,7 @@ import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import { DEFAULT_TOKEN_DECIMAL } from 'config'
 import { useERC20 } from 'hooks/useContract'
+import { BIG_TEN } from 'utils/bigNumber'
 
 interface Props {
   poolId: PoolIds
@@ -51,7 +52,7 @@ const ContributeModal: React.FC<Props> = ({
   const { callWithGasPrice } = useCallWithGasPrice()
   const raisingTokenContract = useERC20(currency.address)
   const { t } = useTranslation()
-  const valueWithTokenDecimals = new BigNumber(value).times(DEFAULT_TOKEN_DECIMAL)
+  const valueWithTokenDecimals = new BigNumber(value).times(BIG_TEN.pow(currency.decimals))
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
     useApproveConfirmTransaction({

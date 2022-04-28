@@ -122,7 +122,7 @@ const IfoFoldableCard: React.FC<IfoFoldableCardProps> = ({ ifo, publicIfoData, w
       toastSuccess(
         t('Successfully Enabled!'),
         <ToastDescriptionWithTx txHash={receipt.transactionHash}>
-          {t('You can now participate in the %symbol% IFO.', { symbol: ifo.token.symbol })}
+          {t('You can now participate in the %symbol% IDO.', { symbol: ifo.token.symbol })}
         </ToastDescriptionWithTx>,
       )
     } catch (error) {
