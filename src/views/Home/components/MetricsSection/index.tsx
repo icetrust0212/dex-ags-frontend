@@ -32,12 +32,12 @@ const Stats = () => {
   const data = useGetStats()
   const { theme } = useTheme()
 
-  // const tvlString = data ? formatLocalisedCompactNumber(data.tvl) : '-'
+  const tvlString = data ? formatLocalisedCompactNumber(data.tvl) : '-'
   // const trades = formatLocalisedCompactNumber(txCount)
   // const users = formatLocalisedCompactNumber(addressCount)
   const trades = 1000
   const users = 1000
-  const tvlString = 1000
+  // const tvlString = 1000
 
   const tvlText = t('And those users are now entrusting the platform with over $%tvl% in funds.', { tvl: tvlString })
   // const [entrusting, inFunds] = tvlText.split(tvlString)
@@ -96,7 +96,7 @@ const Stats = () => {
       <Flex flexDirection={['column', null, null, 'row']} mt={[null, null, null, '32px']}>
         <IconCard {...StakedCardData}>
           <StatCardContent
-            headingText={t('$%tvl% staked', { tvl: tvlString })}
+            headingText={t('$%tvl%', { tvl: tvlString })}
             bodyText={t('Total Value Locked')}
             highlightColor={theme.colors.failure}
           />
@@ -109,7 +109,7 @@ const Stats = () => {
           mt={['16px', null, null, '0']}
         >
           <StatCardContent
-            headingText={t(`%marketCap% Marketcap`, { marketCap: mcapString })}
+            headingText={t(`%marketCap%`, { marketCap: mcapString })}
             bodyText={t(`$${mainnetTokens.cake.symbol} Market Cap`)}
             highlightColor={theme.colors.primary}
           />
