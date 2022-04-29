@@ -109,6 +109,14 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({ poolId, ifo, publicIfoD
     if (status === 'live') {
       return (
         <>
+          <FooterEntry
+            label={t(`Funds to raise (in ${ifo.currency.symbol}):`)}
+            value={`${ifo[poolId].raiseAmountInCurrency} ${ifo.currency.symbol}`}
+          />
+          <FooterEntry
+            label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
+            value={`$${ifo.tokenOfferingPrice} `}
+          />
           {poolId === PoolIds.poolBasic && <FooterEntry label={t('Max. LP token entry')} value={maxLpTokens} />}
           {poolId === PoolIds.poolUnlimited && <FooterEntry label={t('Additional fee:')} value={taxRate} />}
           <FooterEntry label={t('Total committed:')} value={currencyPriceInUSD.gt(0) ? totalCommitted : null} />
