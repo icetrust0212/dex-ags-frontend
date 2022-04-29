@@ -113,6 +113,11 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       {
+        label: t('Token Whitelist'),
+        href: 'https://forms.gle/EB8vuYtBKHTcqg7J6',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
         label: t('Github'),
         href: 'https://github.com/AlterGrimaceSociety/AGS-Finance-Contracts',
         type: DropdownMenuItemType.EXTERNAL_LINK,
