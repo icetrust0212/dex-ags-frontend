@@ -92,13 +92,13 @@ const IfoSteps: React.FC<Props> = ({ ifo, walletIfoData }) => {
               {t(`Get $${ifo.currency.symbol} Tokens`)}
             </Heading>
             <Text color="textSubtle" small>
-              {t(`Get $${ifo.currency.symbol} tokens to participated in an IDO.`)} <br />
+              {t(`Get $${ifo.currency.symbol} tokens to p articipated in an IDO.`)} <br />
               {t('You’ll spend them to buy IDO sale tokens.')}
             </Text>
             <Button
               as={Link}
               external
-              href={`${BASE_SWAP_URL}/${ifo.currency.address}`}
+              href={`https://app.arthswap.org/#/swap?outputCurrency=${ifo.currency.address}`}
               endIcon={<OpenNewIcon color="white" />}
               mt="16px"
             >
