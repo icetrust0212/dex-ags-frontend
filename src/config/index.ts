@@ -7,7 +7,7 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
-export const BSC_BLOCK_TIME = 13.5
+export const BSC_BLOCK_TIME = 12.5
 
 export const BASE_BSC_SCAN_URLS = {
   [ChainId.MAINNET]: 'https://blockscout.com/astar',
@@ -21,7 +21,7 @@ export const BASE_BSC_SCAN_URLS = {
 // 9 CAKE per block goes to Yield farms and lottery
 // CAKE_PER_BLOCK in config/index.ts = 40 as we only change the amount sent to the burn pool which is effectively a farm.
 // CAKE/Block in src/views/Home/components/CakeDataRow.tsx = 15 (40 - Amount sent to burn pool)
-export const CAKE_PER_BLOCK = 50
+export const CAKE_PER_BLOCK = 12.5
 export const BLOCKS_PER_YEAR = (60 / BSC_BLOCK_TIME) * 60 * 24 * 365 // 10512000
 export const CAKE_PER_YEAR = CAKE_PER_BLOCK * BLOCKS_PER_YEAR
 export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : `https://ags.finance`
