@@ -62,12 +62,12 @@ const AprRow: React.FC<AprRowProps> = ({ pool, stakedBalance, performanceFee = 0
     <Flex alignItems="center" justifyContent="space-between">
       {tooltipVisible && tooltip}
       <TooltipText ref={targetRef}>{isAutoVault ? `${t('APY')}:` : `${t('APR')}:`}</TooltipText>
-      {apr || isFinished ? (
+      {earningsPercentageToDisplay || isFinished ? (
         <ApyLabelContainer alignItems="center" onClick={onPresentApyModal}>
           <Balance
             fontSize="16px"
             isDisabled={isFinished}
-            value={isFinished ? 0 : apr}
+            value={isFinished ? 0 : earningsPercentageToDisplay}
             decimals={2}
             unit="%"
             onClick={onPresentApyModal}

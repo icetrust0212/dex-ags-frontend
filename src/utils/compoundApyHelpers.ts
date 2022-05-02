@@ -89,6 +89,7 @@ export const getApy = (apr: number, compoundFrequency = 1, days = 365, performan
   if (timesCompounded > 0) {
     apyAsDecimal = (1 + aprAsDecimal / timesCompounded) ** (timesCompounded * daysAsDecimalOfYear) - 1
   }
+  console.log('apy: ', aprAsDecimal, timesCompounded, daysAsDecimalOfYear, apyAsDecimal)
   if (performanceFee) {
     const performanceFeeAsDecimal = performanceFee / 100
     const takenAsPerformanceFee = apyAsDecimal * performanceFeeAsDecimal
