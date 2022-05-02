@@ -24,13 +24,13 @@ export const stakeFarm = async (masterChefContract, pid, amount) => {
 export const unstakeFarm = async (masterChefContract, pid, amount) => {
   const gasPrice = getGasPrice()
   const value = new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()
-  if (pid === 0) {
-    const tx = await masterChefContract.leaveStaking(value, { ...options, gasPrice })
-    const receipt = await tx.wait()
-    return receipt.status
-  }
+  // if (pid === 0) {
+  //   const tx = await masterChefContract.emergencyWithdraw(value, { ...options, gasPrice })
+  //   const receipt = await tx.wait()
+  //   return receipt.status
+  // }
 
-  const tx = await masterChefContract.withdraw(pid, value, { ...options, gasPrice })
+  const tx = await masterChefContract.emergencyWithdraw(pid, { ...options, gasPrice })
   const receipt = await tx.wait()
   return receipt.status
 }
