@@ -9,7 +9,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'AGS',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
-      592: '0x233729E6A3A5DA3Cf6ee5c2B85C56ab3997FD001',
+      592: '0x0DE115dE1f4397a5Fa9CAeE9B23fF0Bf2B4fa304',
     },
     token: serializedTokens.syrup,
     quoteToken: serializedTokens.wbnb,
@@ -19,7 +19,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'AGS-ASTR',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
-      592: '0x4F74eaA10b58a95EEF3271d1dF9f75e6b9a52ddE',
+      592: '0x389324c44db18334346F8ebBd8AceCddE68d23f5',
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.wbnb,
@@ -29,7 +29,7 @@ const farms: SerializedFarmConfig[] = [
     lpSymbol: 'USDC-AGS',
     lpAddresses: {
       97: '',
-      592: '0xB2fFEcD759F67b5E977BAf2d95eBd9457e0e56DB',
+      592: '0xd9C413A1D60975c31E01073CB1cc6E8518926E6d',
     },
     token: serializedTokens.cake,
     quoteToken: serializedTokens.usdc,
@@ -44,46 +44,47 @@ const farms: SerializedFarmConfig[] = [
     token: serializedTokens.usdt,
     quoteToken: serializedTokens.wbnb,
   },
-  {
-    pid: 4,
-    lpSymbol: 'USDC-USDT',
-    lpAddresses: {
-      97: '',
-      592: '0x0B65bf3Ed38a1ca16faeD48188e6A79221B6c32C',
-    },
-    token: serializedTokens.usdt,
-    quoteToken: serializedTokens.usdc,
-  },
-  {
-    pid: 5,
-    lpSymbol: 'ASTR-USDC',
-    lpAddresses: {
-      97: '',
-      592: '0xB31A1eE9Dc191E551062B90f574eC999cdbC4e15',
-    },
-    token: serializedTokens.usdc,
-    quoteToken: serializedTokens.wbnb,
-  },
-  {
-    pid: 6,
-    lpSymbol: 'ASTR-WETH',
-    lpAddresses: {
-      97: '',
-      592: '0x74cd64D2c32AC33469bb7Cf48B35f2FC80Ba7e87',
-    },
-    token: serializedTokens.eth,
-    quoteToken: serializedTokens.wbnb,
-  },
-  {
-    pid: 7,
-    lpSymbol: 'ASTR-WBTC',
-    lpAddresses: {
-      97: '',
-      592: '0xAC116445AaF95f1de231e638BeaE0737e5574229',
-    },
-    token: serializedTokens.wbtc,
-    quoteToken: serializedTokens.wbnb,
-  },
+  // {
+  //   pid: 4,
+  //   lpSymbol: 'USDC-USDT',
+  //   lpAddresses: {
+  //     97: '',
+  //     592: '0x0B65bf3Ed38a1ca16faeD48188e6A79221B6c32C',
+  //   },
+  //   token: serializedTokens.usdt,
+  //   quoteToken: serializedTokens.usdc,
+  // },
+  // {
+  //   pid: 5,
+  //   lpSymbol: 'ASTR-USDC',
+  //   lpAddresses: {
+  //     97: '',
+  //     592: '0xB31A1eE9Dc191E551062B90f574eC999cdbC4e15',
+  //   },
+  //   token: serializedTokens.usdc,
+  //   quoteToken: serializedTokens.wbnb,
+  // },
+  // {
+  //   pid: 6,
+  //   lpSymbol: 'ASTR-WETH',
+  //   lpAddresses: {
+  //     97: '',
+  //     592: '0x74cd64D2c32AC33469bb7Cf48B35f2FC80Ba7e87',
+  //   },
+  //   token: serializedTokens.eth,
+  //   quoteToken: serializedTokens.wbnb,
+  // },
+  // {
+  //   pid: 7,
+  //   lpSymbol: 'ASTR-WBTC',
+  //   lpAddresses: {
+  //     97: '',
+  //     592: '0xAC116445AaF95f1de231e638BeaE0737e5574229',
+  //   },
+  //   token: serializedTokens.wbtc,
+  //   quoteToken: serializedTokens.wbnb,
+  // }
+
   // {
   //   pid: 3,
   //   lpSymbol: 'USDT/USDC',

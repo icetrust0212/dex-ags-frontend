@@ -1,7 +1,7 @@
 export default {
   masterChef: {
     97: '0x31A1516e06eFF85C4478701140496AB73Af7a244',
-    592: '0x2B8D46E561e371CfD63b2a994fCfd36de2F5C0a6',
+    592: '0xDcb833A58b7Ee77f94851FB7f461e1B351610212',
   },
   sousChef: {
     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
@@ -48,7 +48,7 @@ export default {
     97: '0x24ec6962dbe874F6B67B5C50857565667fA0854F',
   },
   cakeVault: {
-    592: '0x49BD12aeA3142d04c364e1985D936c480594B0E3',
+    592: '0x62e74e20D5fF7Ed894903aC1295cC61e58Be343c',
     97: '',
   },
   predictions: {
@@ -90,5 +90,9 @@ export default {
   pancakeSquad: {
     592: '0x0a8901b0E25DEb55A87524f0cC164E9644020EBA',
     97: '0xfC0c3F11fDA72Cb9A56F28Ec8D44C0ae4B3ABF86',
+  },
+  exchange: {
+    592: '0x78008Ce1A268b6a416a1F1DCAdF924D331f94d31',
+    97: '',
   },
 }

@@ -29,6 +29,7 @@ import {
   getNftMarketAddress,
   getNftSaleAddress,
   getPancakeSquadAddress,
+  getExchangeAddress,
 } from 'utils/addressHelpers'
 
 // ABI
@@ -64,6 +65,7 @@ import nftMarketAbi from 'config/abi/nftMarket.json'
 import nftSaleAbi from 'config/abi/nftSale.json'
 import pancakeSquadAbi from 'config/abi/pancakeSquad.json'
 import erc721CollctionAbi from 'config/abi/erc721collection.json'
+import exchangeAbi from 'config/abi/exchange.json'
 import { ChainLinkOracleContract, FarmAuctionContract, PancakeProfileContract, PredictionsContract } from './types'
 
 const getContract = (abi: any, address: string, signer?: ethers.Signer | ethers.providers.Provider) => {
@@ -168,4 +170,8 @@ export const getPancakeSquadContract = (signer?: ethers.Signer | ethers.provider
 }
 export const getErc721CollectionContract = (signer?: ethers.Signer | ethers.providers.Provider, address?: string) => {
   return getContract(erc721CollctionAbi, address, signer)
+}
+
+export const getExchangeContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
+  return getContract(exchangeAbi, getExchangeAddress(), signer)
 }
