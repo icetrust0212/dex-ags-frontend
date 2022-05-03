@@ -20,7 +20,7 @@
     },
     {
       "name": "AGS Token",
-      "symbol": "AGS-V2",
+      "symbol": "AGS",
       "address": "0xc7D4796B43272A329Ba0E77F015947837171a968",
       "chainId": 592,
       "decimals": 18,
