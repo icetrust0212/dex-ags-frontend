@@ -48,7 +48,7 @@ const CakeDataRow = () => {
   const { t } = useTranslation()
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(tokens.cake.address))
-  const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+  const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) : 0
   const cakePriceBusd = usePriceCakeBusd()
   const mcap = cakePriceBusd.times(cakeSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
@@ -64,7 +64,7 @@ const CakeDataRow = () => {
         )}
       </Flex>
       <StyledColumn>
-        <Text color="textSubtle">{t('Burned to date')}</Text>
+        <Text color="textSubtle">{t('Staked to date')}</Text>
         {burnedBalance ? (
           <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={burnedBalance} />
         ) : (
