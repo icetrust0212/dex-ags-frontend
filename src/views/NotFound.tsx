@@ -13,13 +13,18 @@ const StyledNotFound = styled.div`
   justify-content: center;
 `
 
+const Icon = styled.img`
+  width: 64px;
+  margin-botttom: 8px;
+`
+
 const NotFound = () => {
   const { t } = useTranslation()
 
   return (
     <Page>
       <StyledNotFound>
-        <LogoIcon width="64px" mb="8px" />
+        <Icon src="/images/ags.png" />
         <Heading scale="xxl">404</Heading>
         <Text mb="16px">{t('Oops, page not found.')}</Text>
         <Button as={Link} to="/" scale="sm">

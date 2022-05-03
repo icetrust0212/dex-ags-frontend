@@ -62,7 +62,7 @@ export const mainnetTokens = {
   wbtc: new Token(
     MAINNET,
     '0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA',
-    18,
+    8,
     'WBTC',
     'Astar BTC',
     'https://bitcoin.org/',
