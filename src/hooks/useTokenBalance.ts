@@ -6,9 +6,9 @@ import tokens from 'config/constants/tokens'
 import { getBep20Contract, getCakeContract } from 'utils/contractHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
 import { simpleRpcProvider } from 'utils/providers'
+import { getMasterChefAddress } from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
 import useLastUpdated from './useLastUpdated'
-import { getMasterChefAddress } from 'utils/addressHelpers'
 
 type UseTokenBalanceState = {
   balance: BigNumber
