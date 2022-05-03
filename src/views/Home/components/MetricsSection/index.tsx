@@ -124,7 +124,7 @@ const Stats = () => {
         <IconCard {...BurnCarddata} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
             headingText={t(`%burnedBalance%`, { burnedBalance })}
-            bodyText={t(`$${mainnetTokens.cake.symbol} Burned`)}
+            bodyText={t(`$${mainnetTokens.cake.symbol} staked`)}
             highlightColor={theme.colors.warning}
           />
         </IconCard>

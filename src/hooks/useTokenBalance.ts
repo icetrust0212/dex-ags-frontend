@@ -8,6 +8,7 @@ import { BIG_ZERO } from 'utils/bigNumber'
 import { simpleRpcProvider } from 'utils/providers'
 import useRefresh from './useRefresh'
 import useLastUpdated from './useLastUpdated'
+import { getMasterChefAddress } from 'utils/addressHelpers'
 
 type UseTokenBalanceState = {
   balance: BigNumber
@@ -76,7 +77,8 @@ export const useBurnedBalance = (tokenAddress: string) => {
   useEffect(() => {
     const fetchBalance = async () => {
       const contract = getBep20Contract(tokenAddress)
-      const res = await contract.balanceOf('0x000000000000000000000000000000000000dEaD')
+      const res = await contract.balanceOf(getMasterChefAddress())
+      // const res = await contract.balanceOf('0x000000000000000000000000000000000000dEaD')
       setBalance(new BigNumber(res.toString()))
     }
 
