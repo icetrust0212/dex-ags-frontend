@@ -64,8 +64,10 @@ const Stats = () => {
 
   const totalSupply = useTotalSupply()
   const burnedBalance = getBalanceNumber(useBurnedBalance(tokens.cake.address))
-  const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+  // const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+  const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) : 0
   const cakeSupplyText = formatLocalisedCompactNumber(cakeSupply)
+  const burndText = formatLocalisedCompactNumber(burnedBalance)
   const cakePriceBusd = usePriceCakeBusd()
   const mcap = cakePriceBusd.times(cakeSupply)
   const mcapString = formatLocalisedCompactNumber(mcap.toNumber())
@@ -123,7 +125,7 @@ const Stats = () => {
         </IconCard>
         <IconCard {...BurnCarddata} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
-            headingText={t(`%burnedBalance%`, { burnedBalance })}
+            headingText={t(`%burnedBalance%`, { burndText })}
             bodyText={t(`$${mainnetTokens.cake.symbol} staked`)}
             highlightColor={theme.colors.warning}
           />
