@@ -20,8 +20,16 @@
     },
     {
       "name": "AGS Token",
-      "symbol": "AGS",
-      "address": "0x0DE115dE1f4397a5Fa9CAeE9B23fF0Bf2B4fa304",
+      "symbol": "AGS-V2",
+      "address": "0xc7D4796B43272A329Ba0E77F015947837171a968",
+      "chainId": 592,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png"
+    },
+    {
+      "name": "AGS Token",
+      "symbol": "AGS-V1",
+      "address": "0x233729E6A3A5DA3Cf6ee5c2B85C56ab3997FD001",
       "chainId": 592,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png"
