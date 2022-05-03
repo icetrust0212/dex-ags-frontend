@@ -99,7 +99,7 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
       },
       {
         label: t('Dexscreener'),
-        href: 'https://dexscreener.com/',
+        href: 'https://dexscreener.com/astar/0x10d0e3ef75a94027b9bd08497acf028566e87a1a',
         type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       {
