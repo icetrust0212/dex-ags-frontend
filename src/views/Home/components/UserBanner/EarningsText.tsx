@@ -1,5 +1,6 @@
 import { ContextApi } from 'contexts/Localization/types'
 import BigNumber from 'bignumber.js'
+import { mainnetTokens } from '../../../../config/constants/tokens'
 
 export const getEarningsText = (
   numFarmsToCollect: number,
@@ -27,7 +28,7 @@ export const getEarningsText = (
       earningsText = t('%earningsBusd% to collect from %count% farm', data)
     }
   } else if (hasCakePoolToCollect) {
-    earningsText = t('%earningsBusd% to collect from CAKE pool', data)
+    earningsText = t(`%earningsBusd% to collect from ${mainnetTokens.cake.symbol} pool`, data)
   }
 
   return earningsText
