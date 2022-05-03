@@ -24,7 +24,7 @@ export const BASE_BSC_SCAN_URLS = {
 export const CAKE_PER_BLOCK = 12.5
 export const BLOCKS_PER_YEAR = (60 / BSC_BLOCK_TIME) * 60 * 24 * 365 // 10512000
 export const CAKE_PER_YEAR = CAKE_PER_BLOCK * BLOCKS_PER_YEAR
-export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : `https://ags.finance`
+export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : `https://v1.ags.finance`
 export const BASE_ADD_LIQUIDITY_URL = `${BASE_URL}/add`
 export const BASE_SWAP_URL = `${BASE_URL}/swap`
 export const BASE_BSC_SCAN_URL = BASE_BSC_SCAN_URLS[ChainId.MAINNET]
