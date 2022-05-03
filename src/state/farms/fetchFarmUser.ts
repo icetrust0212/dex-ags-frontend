@@ -100,11 +100,11 @@ export const fetchFarmUserNFTs = async (account: string, farmsToFetch: Serialize
     }
   })
 
-  const boosts = await multicall(masterchefABI, boostCalls)
+  // const boosts = await multicall(masterchefABI, boostCalls)
   const slots = await multicall(masterchefABI, slotsCalls)
   const tokenIds = await multicall(masterchefABI, tokenIdsCalls)
-  const parsedBoosts = boosts.map((boost) => {
-    return new BigNumber(boost).toJSON()
-  })
-  return { boosts: parsedBoosts, slots, tokenIds }
+  // const parsedBoosts = boosts.map((boost) => {
+  //   return new BigNumber(boost).toJSON()
+  // })
+  return { boosts: 0, slots, tokenIds }
 }
