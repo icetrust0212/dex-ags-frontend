@@ -1,6 +1,8 @@
 import { MenuItemsType, DropdownMenuItemType } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
+// @ts-ignore
+import auditDoc from 'resource/audit.pdf'
 
 export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
@@ -121,6 +123,13 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
         label: t('Github'),
         href: 'https://github.com/AlterGrimaceSociety/AGS-Finance-Contracts',
         type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
+        label: t('Audit'),
+        onClick: () => {
+          window.open(auditDoc, '_blank')
+        },
+        type: DropdownMenuItemType.BUTTON,
       },
     ],
   },
