@@ -137,6 +137,7 @@ const NFTModal: React.FC<NFTModalProps> = ({ onDismiss, nfts, slotNumber, poolId
       {isDeposit && (
         <ModalBody minHeight="100px" alignItems="center" justifyContent="center">
           <CustomFlex>
+            {nftBalances.length === 0 && <Text>No NFTs</Text>}
             {nftBalances.map((nft, index) => (
               /* eslint-disable react/no-array-index-key */
               <NFTViewer
