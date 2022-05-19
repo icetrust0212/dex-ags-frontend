@@ -36,7 +36,6 @@ const NewTokenExchange = () => {
   const oldTokenAddress = '0x233729E6A3A5DA3Cf6ee5c2B85C56ab3997FD001'
 
   const oldTokenBalanceState = useTokenBalance(oldTokenAddress)
-  console.log('oldTokenBalance: ', oldTokenBalanceState?.balance?.toJSON())
   const oldTokenContract = useTokenContract(oldTokenAddress, true)
 
   const exchangeContract = getExchangeContract(library?.getSigner())
@@ -68,7 +67,6 @@ const NewTokenExchange = () => {
       try {
         const response = await oldTokenContract.allowance(account, exchangeContract.address)
         const currentAllowance = new BigNumber(response.toString())
-        console.log('currentAllowance: ', currentAllowance.toJSON())
         setEnableStatus(currentAllowance.lte(0) ? EnableStatus.DISABLED : EnableStatus.ENABLED)
       } catch (error) {
         setEnableStatus(EnableStatus.DISABLED)

@@ -6,7 +6,6 @@ const cakeVaultContract = getCakeVaultContract()
 const fetchVaultUser = async (account: string) => {
   try {
     const userContractResponse = await cakeVaultContract.userInfo(account)
-    console.log('cakeVaultUserData: ', account, userContractResponse)
     return {
       isLoading: false,
       userShares: new BigNumber(userContractResponse.shares.toString()).toJSON(),

@@ -22,8 +22,8 @@ const noAccountFarmConfig = farmsConfig.map((farm) => ({
     earnings: '0',
     nfts: {
       boosts: '0',
-      slots: {},
-      tokenIds: {},
+      slots: undefined,
+      tokenIds: undefined,
     },
   },
 }))
@@ -74,7 +74,6 @@ export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], {
     const userStakedBalances = await fetchFarmUserStakedBalances(account, farmsToFetch)
     const userFarmEarnings = await fetchFarmUserEarnings(account, farmsToFetch)
     const userFarmNFTs = await fetchFarmUserNFTs(account, farmsToFetch)
-    console.log('farmUser: ', account, userFarmNFTs)
 
     return userFarmAllowances.map((farmAllowance, index) => {
       return {
@@ -83,7 +82,11 @@ export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], {
         tokenBalance: userFarmTokenBalances[index],
         stakedBalance: userStakedBalances[index],
         earnings: userFarmEarnings[index],
-        nfts: userFarmNFTs[index],
+        nfts: {
+          boosts: userFarmNFTs.boosts[index],
+          slots: userFarmNFTs.slots[index],
+          tokenIds: userFarmNFTs.tokenIds[index],
+        },
       }
     })
   },

@@ -142,7 +142,6 @@ export const useBusdPriceFromPid = (pid: number): BigNumber => {
 export const useLpTokenPrice = (symbol: string) => {
   const farm = useFarmFromLpSymbol(symbol)
   const farmTokenPriceInUsd = useBusdPriceFromPid(farm.pid)
-  console.log('farmPrice: ', farm, farmTokenPriceInUsd)
   let lpTokenPrice = BIG_ZERO
 
   if (farm.lpTotalSupply.gt(0) && farm.lpTotalInQuoteToken.gt(0)) {

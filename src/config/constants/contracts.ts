@@ -95,4 +95,8 @@ export default {
     592: '0x7f5eBc08242B1e6A2cf79a5812fd03924Fc2746f',
     97: '',
   },
+  agsNFT: {
+    592: '0xd50f0bF841E7357AbFc87455866873666fc1be95',
+    97: '',
+  },
 }

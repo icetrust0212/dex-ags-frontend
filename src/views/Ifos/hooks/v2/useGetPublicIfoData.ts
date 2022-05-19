@@ -33,7 +33,6 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   // const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol)
   const lpTokenPriceInUsd = useBUSDPrice(ifo.currency) // for initial IFO
 
-  console.log('lpTokenPrice: ', lpTokenPriceInUsd, lpTokenPriceInUsd?.toSignificant())
   const { fastRefresh } = useRefresh()
 
   const [state, setState] = useState({

@@ -76,3 +76,6 @@ export const getPancakeSquadAddress = () => {
 export const getExchangeAddress = () => {
   return getAddress(addresses.exchange)
 }
+export const getAgsNFTAddress = () => {
+  return getAddress(addresses.agsNFT)
+}

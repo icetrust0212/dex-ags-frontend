@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Flex, Text, useModal } from '@pancakeswap/uikit'
 import { mainnetTokens } from 'config/constants/tokens'
 import styled from 'styled-components'
+import { getAGSNFTContract } from 'utils/contractHelpers'
+import axios from 'axios'
 import NFTModal from '../NFTModal'
 
 interface Props {
@@ -33,52 +35,76 @@ const CustomFlex = styled(Flex)`
 const NFTBoostSection = ({ farm }: Props) => {
   const nfts = farm?.userData?.nfts
   const poolId = farm?.pid
-  console.log('nfts: ', nfts, poolId)
-  const img1 = nfts.slots ? nfts.slots : '/images/farms/unknown-nft.png'
-  const img2 = nfts.slots ? nfts.slots : '/images/farms/unknown-nft.png'
-  const img3 = nfts.slots ? nfts.slots : '/images/farms/unknown-nft.png'
+
+  console.log('nfts: ', nfts)
+  const [arts, setArts] = useState<any[]>([])
+
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => {
+    const nftContract = getAGSNFTContract()
+
+    const getNFTArts = async () => {
+      let tokenIds = nfts.tokenIds && nfts.tokenIds !== {} ? nfts.tokenIds : []
+      if (tokenIds === {}) tokenIds = []
+      console.log('tokenIDs: ', tokenIds)
+      const metadatas = await Promise.all(
+        tokenIds.map(async (tokenId) => {
+          if (tokenId && tokenId !== '0') {
+            const uri = await nftContract.tokenURI(tokenId)
+            return uri
+          }
+          return ''
+        }),
+      )
+
+      const _arts = await Promise.all(
+        metadatas?.map(async (metadata: any) => {
+          const img = metadata ? (await axios.get(metadata)).data.image : '/images/farms/unknown-nft.png'
+          return img
+        }),
+      )
+
+      setArts(_arts)
+    }
+
+    getNFTArts()
+  }, [])
 
   const [slotNum, setSlotNum] = useState(0)
+  const [isShow, setShow] = useState(false)
 
-  const handleConfirm = () => {
-    console.log('handleCOnfirm: ')
-  }
-
-  const [onPresentDeposit] = useModal(
-    <NFTModal onConfirm={handleConfirm} nfts={nfts} slotNumber={slotNum} />,
-    true,
-    true,
-    'NFTModal',
-  )
+  // const [onPresentDeposit] = useModal(
+  // )
 
   const handleSlotClick = (slotId: number) => {
-    onPresentDeposit()
     setSlotNum(slotId)
+    // onPresentDeposit()
+    setShow(true)
   }
 
   return (
-    <CustomFlex width="fit-content" mt="20px" flexWrap="wrap" justifyContent="space-between" style={{ gap: '30px' }}>
-      <Flex flexDirection="column">
-        <Text>Stake AGS NFTs to increase {mainnetTokens.cake.symbol} earnings</Text>
-        <Flex alignItems="center">
-          <Text>Current Boost Rate: </Text>
-          <Text ml="15px" fontSize="28px">
-            +{nfts.boosts.toJSON()}%
-          </Text>
+    <>
+      <CustomFlex width="fit-content" mt="20px" flexWrap="wrap" justifyContent="space-between" style={{ gap: '30px' }}>
+        <Flex flexDirection="column">
+          <Text>Stake AGS NFTs to increase {mainnetTokens.cake.symbol} earnings</Text>
+          <Flex alignItems="center">
+            <Text>Current Boost Rate: </Text>
+            <Text ml="15px" fontSize="28px">
+              +{nfts.boosts.toJSON()}%
+            </Text>
+          </Flex>
         </Flex>
-      </Flex>
-      <Flex justifyContent="space-between" style={{ gap: '20px' }}>
-        <Slot onClick={() => handleSlotClick(0)}>
-          <img src={img1} alt="slot0" />
-        </Slot>
-        <Slot onClick={() => handleSlotClick(1)}>
-          <img src={img2} alt="slot1" />
-        </Slot>
-        <Slot onClick={() => handleSlotClick(2)}>
-          <img src={img3} alt="slot2" />
-        </Slot>
-      </Flex>
-    </CustomFlex>
+        <Flex justifyContent="space-between" style={{ gap: '20px' }}>
+          {arts.map((art, index) => (
+            /* eslint-disable react/no-array-index-key */
+            <Slot key={`nftslot-${index}`} onClick={() => handleSlotClick(index)}>
+              <img src={art} alt="slot" />
+            </Slot>
+          ))}
+        </Flex>
+      </CustomFlex>
+      <NFTModal nfts={nfts} slotNumber={slotNum} poolId={poolId} isShow={isShow} onDismiss={() => setShow(false)} />
+    </>
   )
 }
 

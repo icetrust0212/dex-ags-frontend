@@ -90,7 +90,6 @@ export const fetchUserPendingRewards = async (account) => {
       {},
     )
   }
-  console.log('fetchPoolsUserDataAsync_pendingRewards_in: ', account, pendingRewards)
   // Cake / Cake pool
   const pendingReward = await masterChefContract.pendingAgs('0', account)
 
