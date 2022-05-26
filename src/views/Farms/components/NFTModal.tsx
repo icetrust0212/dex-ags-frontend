@@ -22,6 +22,24 @@ const CustomModal = styled(Modal)`
   max-width: 800px;
   width: 80%;
 `
+const customMobilModalStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    margin: '150px auto',
+    background: 'white',
+    borderRadius: '12px',
+    boxShadow: '1px 1px 10px #786b6b',
+    padding: '20px',
+    maxHeight: '400px',
+    overflow: 'auto',
+  },
+  overlay: {
+    background: '#452a7a66',
+  },
+}
 
 const customStyles = {
   content: {
@@ -34,6 +52,8 @@ const customStyles = {
     borderRadius: '12px',
     boxShadow: '1px 1px 10px #786b6b',
     padding: '20px',
+    maxHeight: '400px',
+    overflow: 'auto',
   },
   overlay: {
     background: '#452a7a66',
@@ -47,6 +67,8 @@ const CustomModalTitle = styled(ModalTitle)`
 const CustomFlex = styled(Flex)`
   gap: 20px;
   flex-wrap: wrap;
+  height: 100%;
+  overflow: auto;
 `
 
 interface NFTModalProps {
@@ -76,6 +98,7 @@ const NFTModal: React.FC<NFTModalProps> = ({ onDismiss, nfts, slotNumber, poolId
   const { callWithGasPrice } = useCallWithGasPrice()
 
   const [selectedNFT, setSelectedNFT] = useState<number>()
+  const isMobile = window.innerWidth < 576
 
   const handleNFTClick = (id: number) => {
     setSelectedNFT(id)
@@ -130,7 +153,7 @@ const NFTModal: React.FC<NFTModalProps> = ({ onDismiss, nfts, slotNumber, poolId
       title={t(`${label} ${slotNumber + 1}`)}
       onDismiss={onDismiss}
       isOpen={isShow}
-      style={customStyles}
+      style={!isMobile ? customStyles : customMobilModalStyles}
       onRequestClose={onDismiss}
     >
       <CustomModalTitle>{t(`${label} ${slotNumber + 1}`)}</CustomModalTitle>

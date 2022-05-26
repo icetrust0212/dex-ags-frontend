@@ -36,8 +36,8 @@ interface PropsType {
 }
 
 const Img = styled.img`
-  width: 128px;
-  height: 128px;
+  width: 120px;
+  height: 120px;
   border-radius: 24px;
   border-width: 2px;
   border-color: #1d6db5;
