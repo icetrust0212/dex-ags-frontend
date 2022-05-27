@@ -90,6 +90,11 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
       //   href: '/info',
       // },
       {
+        label: t('NFT'),
+        href: 'https://altergrimace.com',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+      },
+      {
         label: t('Faucet'),
         href: 'https://portal.astar.network/#/balance/wallet',
         type: DropdownMenuItemType.EXTERNAL_LINK,
